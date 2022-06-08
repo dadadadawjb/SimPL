@@ -14,7 +14,7 @@ public class RefValue extends Value {
 
     @Override
     public String toString(State s) {
-        return "ref@" + s.M.get(p).toString(s);
+        return "ref@" + s.M.read(p).toString(s);
     }
 
     @Override

@@ -189,6 +189,7 @@ public class Interpreter {
                 interpret("doc/examples/advanced/pred1_redefine.spl");
                 interpret("doc/examples/advanced/succ0_redefine.spl");
                 interpret("doc/examples/advanced/succ1_redefine.spl");
+                interpret("doc/examples/advanced/gc0.spl");
 
                 interpret("doc/examples/commons/factorial1.spl");
                 interpret("doc/examples/commons/factorial2.spl");

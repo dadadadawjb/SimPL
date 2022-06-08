@@ -40,11 +40,10 @@ public class Ref extends UnaryExpr {
     @Override
     public Value eval(State s) throws RuntimeError {
         // TODO
-        int i = s.p.get();
-        s.p.set(i + 1);
-        Value value = e.eval(s);            // first the body
-        s.M.put(i, value);                  // update the memory
-        return new RefValue(i);
+        int ptr = s.M.alloc(s);             // malloc
+        Value value = e.eval(s);            // evaluate value
+        s.M.write(ptr, value);              // write to memory
+        return new RefValue(ptr);
     }
 
     @Override

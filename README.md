@@ -13,7 +13,7 @@ SimPL is a simplified dialect of ML, which can be used for both *functional* and
 * Operational semantics including both environment model and memory store
 * Predefined generic programming template library functions of universal polymorphism
 * Predefined programming computable functions
-* Reference counting, mark-and-sweep and copy collection based garbage collection(expected)
+* Reference counting(expected), mark-and-sweep and copy collection based garbage collection
 * Lazy evaluation(expected)
 * Tail recursion(expected)
 * Rich example programs
@@ -116,7 +116,7 @@ end
   - [ ] subtype polymorphism
   - [ ] ad-hoc polymorphism
   - [ ] reference counting based garbage collection
-  - [ ] mark-and-sweep based garbage collection
-  - [ ] copy collection garbage collection
+  - [x] mark-and-sweep based garbage collection
+  - [x] copy collection garbage collection
   - [ ] lazy evaluation
   - [ ] tail recursion

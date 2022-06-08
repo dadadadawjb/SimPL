@@ -1,5 +1,7 @@
 package simpl.interpreter;
 
+import java.util.Map;
+import java.util.HashMap;
 import simpl.parser.Symbol;
 
 // mapping from variable names to values
@@ -42,5 +44,25 @@ public class Env {
     public Env clone() {
         // TODO
         return new Env(E.clone(), x, v);
+    }
+
+    public Map<Symbol, RefValue> allReferences() {
+        Map<Symbol, RefValue> map = new HashMap<>();
+        Symbol symbol = x;
+        Value value = v;
+        Env env = E;
+        while (true) {
+            if (value instanceof RefValue && !map.containsKey(symbol))
+                map.put(symbol, (RefValue) value);
+            
+            if (env != null) {
+                symbol = env.x;
+                value = env.v;
+                env = env.E;
+            } else {
+                break;
+            }
+        }
+        return map;
     }
 }

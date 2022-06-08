@@ -48,7 +48,7 @@ public class Deref extends UnaryExpr {
         Value value = e.eval(s);        // first the body
         if (!(value instanceof RefValue))
             throw new RuntimeError("Deref requires the body RefValue");                             // actually never reach here depending on type checking
-        Value resultValue = s.M.get(((RefValue) value).p);      // then get the value from the memory
+        Value resultValue = s.M.read(((RefValue) value).p);     // then get the value from the memory
         if (resultValue == null)
             throw new RuntimeError("Deref out of memory pointer");
         return resultValue;

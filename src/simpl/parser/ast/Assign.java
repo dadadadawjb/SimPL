@@ -50,7 +50,7 @@ public class Assign extends BinaryExpr {
         if (!(leftValue instanceof RefValue))
             throw new RuntimeError("Assign requires left RefValue");                           // actually never reach here depending on type checking
         Value rightValue = r.eval(s);       // then right
-        s.M.put(((RefValue) leftValue).p, rightValue);      // update the memory
+        s.M.write(((RefValue) leftValue).p, rightValue);    // update the memory
         return Value.UNIT;
     }
 

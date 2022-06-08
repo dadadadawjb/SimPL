@@ -147,6 +147,7 @@ public class ParserTest {
         parse("doc/examples/advanced/pred1_redefine.spl");
         parse("doc/examples/advanced/succ0_redefine.spl");
         parse("doc/examples/advanced/succ1_redefine.spl");
+        parse("doc/examples/advanced/gc0.spl");
 
         parse("doc/examples/commons/factorial1.spl");
         parse("doc/examples/commons/factorial2.spl");
