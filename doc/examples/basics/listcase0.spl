@@ -1,0 +1,5 @@
+let top = fn l => (case l of nil => ~1 | x1::x2 => x1) in
+  top nil
+end
+(* int *)
+(* ==> -1 *)

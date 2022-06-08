@@ -83,6 +83,32 @@ $$
 $$
 
 $$
+(\operatorname{inl} e)[e'/x] = \operatorname{inl} e[e'/x]
+$$
+
+$$
+(\operatorname{inr} e)[e'/x] = \operatorname{inr} e[e'/x]
+$$
+
+$$
+(\operatorname{case} e \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1 \mid \operatorname{inr} x_2 \Rightarrow e_2)[e'/x_1] = \operatorname{case} e[e'/x_1] \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1 \mid \operatorname{inr} x_2 \Rightarrow e_2[e'/x_1]
+$$
+
+$$
+(\operatorname{case} e \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1 \mid \operatorname{inr} x_2 \Rightarrow e_2)[e'/x_2] = \operatorname{case} e[e'/x_2] \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1[e'/x_2] \mid \operatorname{inr} x_2 \Rightarrow e_2
+$$
+
+$$
+(\operatorname{case} e \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1 \mid \operatorname{inr} x_2 \Rightarrow e_2)[e'/x] = 
+\begin{cases}
+\operatorname{case} e[e'/x] \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1[e'/x] \mid \operatorname{inr} x_2 \Rightarrow e_2[e'/x] &\text{if } x \neq x_1 \text{ and } x \neq x_2 \text{ and } (x_1 \notin FV(e') \text{ or } x \notin FV(e_1)) \text{ and } (x_2 \notin FV(e') \text{ or } x \notin FV(e_2)) \\
+\operatorname{case} e[e'/x] \operatorname{of} \operatorname{inl} z_1 \Rightarrow e_1[z_1/x_1][e'/x] \mid \operatorname{inr} x_2 \Rightarrow e_2[e'/x] &\text{if } x \neq x_1 \text{ and } x \neq x_2 \text{ and } x_1 \in FV(e') \text{ and } x \in FV(e_1) \text{ and } (x_2 \notin FV(e') \text{ or } x \notin FV(e_2)) \text{ and } z_1 \notin FV(e') \cup FV(e_1) \\
+\operatorname{case} e[e'/x] \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1[e'/x] \mid \operatorname{inr} z_2 \Rightarrow e_2[z_2/x_2][e'/x] &\text{if } x \neq x_1 \text{ and } x \neq x_2 \text{ and } (x_1 \notin FV(e') \text{ or } x \notin FV(e_1)) \text{ and } x_2 \in FV(e') \text{ and } x \in FV(e_2) \text{ and } z_2 \notin FV(e') \cup FV(e_2) \\
+\operatorname{case} e[e'/x] \operatorname{of} \operatorname{inl} z_1 \Rightarrow e_1[z_1/x_1][e'/x] \mid \operatorname{inr} z_2 \Rightarrow e_2[z_2/x_2][e'/x] &\text{if } x \neq x_1 \text{ and } x \neq x_2 \text{ and } x_1 \in FV(e') \text{ and } x \in FV(e_1) \text{ and } x_2 \in FV(e') \text{ and } x \in FV(e_2) \text{ and } z_1 \notin FV(e') \cup FV(e_1) \text{ and } z_2 \notin FV(e') \cup FV(e_2)
+\end{cases}
+$$
+
+$$
 (\operatorname{rec} x \Rightarrow e)[e'/x] = \operatorname{rec} x \Rightarrow e
 $$
 
@@ -100,6 +126,24 @@ $$
 
 $$
 (e_1 :: e_2)[e/x] = e_1[e/x] :: e_2[e/x]
+$$
+
+$$
+(\operatorname{case} e \operatorname{of} nil \Rightarrow e_1 \mid x_1::x_2 \Rightarrow e_2)[e'/x_1] = \operatorname{case} e[e'/x_1] \operatorname{of} nil \Rightarrow e_1[e'/x_1] \mid x_1::x_2 \Rightarrow e_2
+$$
+
+$$
+(\operatorname{case} e \operatorname{of} nil \Rightarrow e_1 \mid x_1::x_2 \Rightarrow e_2)[e'/x_2] = \operatorname{case} e[e'/x_2] \operatorname{of} nil \Rightarrow e_1[e'/x_2] \mid x_1::x_2 \Rightarrow e_2
+$$
+
+$$
+(\operatorname{case} e \operatorname{of} nil \Rightarrow e_1 \mid x_1::x_2 \Rightarrow e_2)[e'/x] = 
+\begin{cases}
+\operatorname{case} e[e'/x] \operatorname{of} nil \Rightarrow e_1[e'/x] \mid x_1::x_2 \Rightarrow e_2[e'/x] &\text{if } x \neq x_1 \text{ and } x \neq x_2 \text{ and } (x_1 \notin FV(e') \text{ or } x \notin FV(e_1)) \text{ and } (x_2 \notin FV(e') \text{ or } x \notin FV(e_2)) \\
+\operatorname{case} e[e'/x] \operatorname{of} nil \Rightarrow e_1[e'/x] \mid z_1::x_2 \Rightarrow e_2[z_1/x_1][e'/x] &\text{if } x \neq x_1 \text{ and } x \neq x_2 \text{ and } x_1 \in FV(e') \text{ and } x \in FV(e_1) \text{ and } (x_2 \notin FV(e') \text{ or } x \notin FV(e_2)) \text{ and } z_1 \notin FV(e') \cup FV(e_2) \cup \{x_2\} \\
+\operatorname{case} e[e'/x] \operatorname{of} nil \Rightarrow e_1[e'/x] \mid x_1::z_2 \Rightarrow e_2[z_2/x_2][e'/x] &\text{if } x \neq x_1 \text{ and } x \neq x_2 \text{ and } (x_1 \notin FV(e') \text{ or } x \notin FV(e_1)) \text{ and } x_2 \in FV(e') \text{ and } x \in FV(e_2) \text{ and } z_2 \notin FV(e') \cup FV(e_2) \cup \{x_1\} \\
+\operatorname{case} e[e'/x] \operatorname{of} nil \Rightarrow e_1[e'/x] \mid z_1::z_2 \Rightarrow e_2[z_1/x_1][z_2/x_2][e'/x] &\text{if } x \neq x_1 \text{ and } x \neq x_2 \text{ and } x_1 \in FV(e') \text{ and } x \in FV(e_1) \text{ and } x_2 \in FV(e') \text{ and } x \in FV(e_2) \text{ and } z_1 \notin FV(e') \cup FV(e_2) \text{ and } z_2 \notin FV(e') \cup FV(e_2) \text{ and } z_1 \neq z_2
+\end{cases}
 $$
 
 $$

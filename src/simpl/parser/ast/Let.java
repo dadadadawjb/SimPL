@@ -109,7 +109,7 @@ public class Let extends Expr {
     @Override
     public Let substitute(Symbol x, Expr e) {
         // TODO
-        // 2 cases
+        // 3 cases
         if (this.x.equals(x)) {
             return new Let(this.x, e1.substitute(x, e), e2);
         } else {

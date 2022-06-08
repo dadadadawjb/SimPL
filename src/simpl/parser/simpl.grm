@@ -16,6 +16,8 @@ parser code {:
 :};
 
 terminal NIL;
+terminal INL, INR;
+terminal CASE, OF, MID;
 terminal REF;
 terminal FN, REC;
 terminal LET, IN, END;
@@ -34,7 +36,7 @@ terminal String ID;
 
 non terminal Expr e;
 
-precedence right NUM, ID, TRUE, FALSE, NIL, FN, REC, ARROW, IF, ELSE, WHILE, DO, BREAK, CONTINUE, UNIT;
+precedence right NUM, ID, TRUE, FALSE, NIL, FN, REC, ARROW, CASE, OF, MID, IF, ELSE, WHILE, DO, BREAK, CONTINUE, UNIT;
 precedence left SEMI;
 precedence nonassoc ASSIGN;
 precedence right ORELSE;
@@ -44,7 +46,7 @@ precedence right CONS;
 precedence left ADD, SUB;
 precedence left MUL, DIV, MOD;
 precedence left APP, LPAREN;
-precedence right NEG, NOT, DEREF, REF;
+precedence right NEG, NOT, DEREF, REF, INL, INR;
 
 start with e;
 
@@ -53,6 +55,10 @@ e ::= NUM:n {: RESULT = new IntegerLiteral(n.intValue()); :}
     | TRUE  {: RESULT = new BooleanLiteral(true); :}
     | FALSE {: RESULT = new BooleanLiteral(false); :}
     | NIL   {: RESULT = new Nil(); :}
+    | INL e:e {: RESULT = new Inl(e); :}
+    | INR e:e {: RESULT = new Inr(e); :}
+    | CASE e:e OF INL ID:x1 ARROW e:e1 MID INR ID:x2 ARROW e:e2 {: RESULT = new SumCase(e, symbol(x1), e1, symbol(x2), e2); :}
+    | CASE e:e OF NIL ARROW e:e1 MID ID:x1 CONS ID:x2 ARROW e:e2 {: RESULT = new ListCase(e, e1, symbol(x1), symbol(x2), e2); :}
     | REF e:e {: RESULT = new Ref(e); :}
     | FN ID:x ARROW e:e {: RESULT = new Fn(symbol(x), e); :}
     | REC ID:x ARROW e:e {: RESULT = new Rec(symbol(x), e); :}

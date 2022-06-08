@@ -44,6 +44,10 @@ Whitespace = {LineTerm}|[ \t\f]
     "*)" { throw new SyntaxError("Comment mismatch, extra *) found", yyline, yycolumn); }
     
     "nil"      { return token(NIL); }
+    "inl"      { return token(INL); }
+    "inr"      { return token(INR); }
+    "case"     { return token(CASE); }
+    "of"       { return token(OF); }
     "ref"      { return token(REF); }
     "fn"       { return token(FN); }
     "rec"      { return token(REC); }
@@ -88,6 +92,8 @@ Whitespace = {LineTerm}|[ \t\f]
     ";"  { return token(SEMI); }
     "("  { return token(LPAREN); }
     ")"  { return token(RPAREN); }
+
+    "|" { return token(MID); }
     
     {Identifier} { return token(ID, yytext()); }
     {DecInteger} { return token(NUM, Integer.valueOf(yytext())); }  // over 2^31-1 will raise NumberFormatException

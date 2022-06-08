@@ -56,10 +56,15 @@ e &::= \quad \ldots & \\
  & & \\
  &| \qquad (e_1, e_2) &\text{(pair expression)} \\
  & & \\
+ &| \qquad \operatorname{inl} e &\text{(left injection)} \\
+ &| \qquad \operatorname{inr} e &\text{(right injection)} \\
+ &| \qquad \operatorname{case} e \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1 \mid \operatorname{inr} x_2 \Rightarrow e_2 &\text{(sum case)}
+ & & \\
  &| \qquad \operatorname{rec} x \Rightarrow e &\text{(recursive function)} \\
  & & \\
  &| \qquad nil &\text{(empty list)} \\
  &| \qquad e_1::e_2 &\text{(list constructor)} \\
+ &| \qquad \operatorname{case} e \operatorname{of} nil \Rightarrow e_1 \mid x_1::x_2 \Rightarrow e_2 &\text{(list destructor)} \\
  & & \\
  &| \qquad (e) &\text{(grouping)}
 \end{aligned}
@@ -71,6 +76,9 @@ $$
 \begin{aligned}
 v &::= \quad \ldots & \\
  &| \qquad (v_1, v_2) &\text{(pair value)} \\
+ & & \\
+ &| \qquad \operatorname{inl} v &\text{(left injection value)} \\
+ &| \qquad \operatorname{inr} v &\text{(right injection value)} \\
  & & \\
  &| \qquad \{\operatorname{rec}, x, e, E\} &\text{(recursion value closure)} \\
  & & \\

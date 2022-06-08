@@ -25,6 +25,8 @@ $$
 t &::= \quad \ldots & \\
  &| \qquad t_1 \times t_2 &\text{(pair type)} \\
  & & \\
+ &| \qquad t_1 + t_2 &\text{(sum type)} \\
+ & & \\
  &| \qquad t\ \operatorname{list} &\text{(list type)}
 \end{aligned}
 $$
@@ -34,6 +36,8 @@ $$
 \begin{aligned}
 \alpha &::= \quad \ldots & \\
  &| \qquad \alpha_1 \times \alpha_2 &\text{(pair type)} \\
+ & & \\
+ &| \qquad \alpha_1 + \alpha_2 &\text{(sum type)} \\
  & & \\
  &| \qquad \alpha\ \operatorname{list} &\text{(list type)}
 \end{aligned}

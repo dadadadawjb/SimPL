@@ -1,0 +1,8 @@
+let
+  sum = rec sum =>
+  		fn a => (case a of nil => 0 | x1::x2 => x1 + (sum x2))
+in
+  sum (1::2::3::nil)
+end
+(* int *)
+(* ==> 6 *)

@@ -4,7 +4,7 @@ SimPL is a simplified dialect of ML, which can be used for both *functional* and
 
 ## Support Features
 * Pure lambda calculus functional features (variable, function abstraction, function application)
-* Simply-typed lambda calculus with extensions (boolean, integer, pair, tuple(expected), record(expected), sum(expected), variant(expected), recursion, let-recursion(expected), mutual recursion(expected), list, pattern match(expected), infinite stream(expected))
+* Simply-typed lambda calculus with extensions (boolean, integer, pair, tuple(expected), record(expected), sum, variant(expected), recursion, let-recursion(expected), mutual recursion(expected), list, pattern match, infinite stream(expected))
 * Imperative programming features (reference, dereference, assignment, while loop, break and continue, error(expected), array(expected), print(expected), define(expected))
 * Principal type inference with constraint typing rules and unification algorithm
 * Substitution based and universal polymorphism based let-polymorphism
@@ -97,9 +97,9 @@ end
 - [ ] more features
   - [ ] tuple
   - [ ] record
-  - [ ] sum
+  - [x] sum
   - [ ] variant
-  - [ ] case
+  - [x] case
   - [ ] infinite stream
   - [x] break and continue
   - [ ] array

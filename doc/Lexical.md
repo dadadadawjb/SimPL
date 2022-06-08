@@ -10,6 +10,8 @@
 
 ## Keywords
 * `nil`
+* `inl` &emsp; `inr`
+* `case` &emsp; `of`
 * `ref`
 * `fn` &emsp; `rec`
 * `let` &emsp; `in` &emsp; `end`
@@ -25,12 +27,13 @@
 * `::` &emsp; `()` &emsp; `=>`
 * `:=` &emsp; `!`
 * `,` &emsp; `;` &emsp; `(` &emsp; `)`
+* `|`
 > :warning: `not`, `andalso` and `orelse` are categorized as keywords
 
 ### Operator Precedence
 | Priority | Operator | Associativity |
 | ------ | ------ | ------ |
-| 0 | `=>` | right |
+| 0 | `=>` &emsp; `\|` | right |
 | 1 | `;` | left |
 | 2 | `:=` | none |
 | 3 | `orelse` | right |
@@ -40,4 +43,4 @@
 | 7 | `+` &emsp; `-` | left |
 | 8 | `*` &emsp; `/` &emsp; `%` | left |
 | 9 | (application) | left |
-| 10 | `~` &emsp; `not` &emsp; `!` &emsp; `ref` | right |
+| 10 | `~` &emsp; `not` &emsp; `!` &emsp; `ref` &emsp; `inl` &emsp; `inr` | right |

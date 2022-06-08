@@ -66,6 +66,18 @@ $$
 $$
 
 $$
+\frac{\Gamma \vdash e:t_1, q}{\Gamma \vdash \operatorname{inl} e:t_1+t_2, q}(CT-SumInl)
+$$
+
+$$
+\frac{\Gamma \vdash e:t_2, q}{\Gamma \vdash \operatorname{inr} e:t_1+t_2, q}(CT-SumInr)
+$$
+
+$$
+\frac{\Gamma \vdash e:t_0, q_0 \qquad \Gamma, x_1:t_1 \vdash e_1:t'_1, q_1 \qquad \Gamma, x_2:t_2 \vdash e_2:t'_2, q_2}{\Gamma \vdash \operatorname{case} e \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1 \mid \operatorname{inr} x_2 \Rightarrow e_2 : t'_1, q_0 \cup q_1 \cup q_2 \cup \{t_0 = t_1+t_2, t'_1 = t'_2\}}(CT-CaseSum)
+$$
+
+$$
 \frac{\Gamma, x:t_1 \vdash e:t_2, q}{\Gamma \vdash \operatorname{rec} x \Rightarrow e : t_2, q \cup \{t_1=t_2\}}(CT-Rec)
 $$
 
@@ -75,6 +87,10 @@ $$
 
 $$
 \frac{\Gamma \vdash e_1:t_1, q_1 \qquad \Gamma \vdash e_2:t_2, q_2}{\Gamma \vdash e_1::e_2 : t_2, q_1 \cup q_2 \cup \{t_2=t_1\ \operatorname{list}\}}(CT-Cons)
+$$
+
+$$
+\frac{\Gamma \vdash e:t_0, q_0 \qquad \Gamma \vdash e_1:t'_1, q_1 \qquad \Gamma, x_1:t_1, x_2:t_1\ \operatorname{list} \vdash e_2:t'_2, q_2}{\Gamma \vdash \operatorname{case} e \operatorname{of} nil \Rightarrow e_1 \mid x_1::x_2 \Rightarrow e_2 : t'_1, q_0 \cup q_1 \cup q_2 \cup \{t_0=t_1\ \operatorname{list}, t'_1=t'_2\}}(CT-CaseList)
 $$
 
 $$

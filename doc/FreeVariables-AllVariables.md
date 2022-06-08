@@ -90,6 +90,16 @@ $$
 > $FV((e_1, e_2)) = FV(\operatorname{pair}\ e_1\ e_2) = FV(\lambda f.\lambda s.\lambda b.b\ f\ s) \cup FV(e_1) \cup FV(e_2) = FV(e_1) \cup FV(e_2)$
 
 $$
+FV(\operatorname{inl} e) = FV(\operatorname{inr} e) = FV(e)
+$$
+> unknown
+
+$$
+FV(\operatorname{case} e \operatorname{of} \operatorname{inl} x \Rightarrow e_1 \mid \operatorname{inr} x \Rightarrow e_2) = FV(e) \cup (FV(e_1) - \{x_1\}) \cup (FV(e_2) - \{x_2\})
+$$
+> unknown
+
+$$
 FV(\operatorname{rec} x \Rightarrow e) = FV(e) - \{x\}
 $$
 > $FV(\operatorname{rec} x \Rightarrow e) = FV(\operatorname{fix}\ \lambda x.e) = FV( \lambda f.\left( (\lambda x.f\ (\lambda y.x\ x\ y))\ (\lambda x.f\ (\lambda y.x\ x\ y)) \right) ) \cup FV(\lambda x.e) = FV(e) - \{x\}$
@@ -101,6 +111,11 @@ $$
 
 $$
 FV(e_1 :: e_2) = FV(e_1) \cup FV(e_2)
+$$
+> unknown
+
+$$
+FV(\operatorname{case} e \operatorname{of} nil \Rightarrow e_1 \mid x_1::x_2 \Rightarrow e_2) = FV(e) \cup FV(e_1) \cup (FV(e_2) - \{x_1, x_2\})
 $$
 > unknown
 
@@ -230,6 +245,16 @@ $$
 > unknown
 
 $$
+Vars(\operatorname{inl} e) = FV(\operatorname{inr} e) = Vars(e)
+$$
+> unknown
+
+$$
+Vars(\operatorname{case} e \operatorname{of} \operatorname{inl} x \Rightarrow e_1 \mid \operatorname{inr} x \Rightarrow e_2) = Vars(e) \cup (Vars(e_1) \cup \{x_1\}) \cup (Vars(e_2) \cup \{x_2\})
+$$
+> unknown
+
+$$
 Vars(\operatorname{rec} x \Rightarrow e) = Vars(e) \cup \{x\}
 $$
 > unknown
@@ -241,6 +266,16 @@ $$
 
 $$
 Vars(e_1 :: e_2) = Vars(e_1) \cup Vars(e_2)
+$$
+> unknown
+
+$$
+Vars(\operatorname{case} e \operatorname{of} nil \Rightarrow e_1 \mid x_1::x_2 \Rightarrow e_2) = Vars(e) \cup Vars(e_1) \cup (Vars(e_2) \cup \{x_1, x_2\})
+$$
+> unknown
+
+$$
+Vars((e)) = Vars(e)
 $$
 > unknown
 

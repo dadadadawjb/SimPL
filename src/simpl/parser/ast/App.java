@@ -43,8 +43,6 @@ public class App extends BinaryExpr {
         TypeVar resultTypeVar = new TypeVar(true);                                                      // create new type variable, with equality type since not sure about the equality
         substitution = substitution.compose(leftType.unify(new ArrowType(rightType, resultTypeVar)));   // then solve the type constraint `t1 = t2 -> t3`
         Type resultType = substitution.apply(resultTypeVar);                                            // do substitution
-        if (resultType == null)
-            throw new TypeError("Some symbol not found in type environment");       // actually never reach here since type error only occurs in name expression
 
         return TypeResult.of(substitution, resultType);
     }

@@ -128,10 +128,16 @@ public class Interpreter {
                 interpret("doc/examples/basics/pair1.spl");
                 interpret("doc/examples/basics/pair2.spl");
                 interpret("doc/examples/basics/pair3.spl");
+                interpret("doc/examples/basics/inl0.spl");
+                interpret("doc/examples/basics/inr0.spl");
+                interpret("doc/examples/basics/sumcase0.spl");
+                interpret("doc/examples/basics/sumcase1.spl");
                 interpret("doc/examples/basics/rec0.spl");
                 interpret("doc/examples/basics/nil0.spl");
                 interpret("doc/examples/basics/cons0.spl");
                 interpret("doc/examples/basics/cons0_error.spl");
+                interpret("doc/examples/basics/listcase0.spl");
+                interpret("doc/examples/basics/listcase1.spl");
                 interpret("doc/examples/basics/ref0.spl");
                 interpret("doc/examples/basics/ref1.spl");
                 interpret("doc/examples/basics/ref2.spl");
@@ -198,7 +204,8 @@ public class Interpreter {
                 interpret("doc/examples/commons/gcd2.spl");
                 interpret("doc/examples/commons/iseven.spl");
                 interpret("doc/examples/commons/lists.spl");
-                interpret("doc/examples/commons/listsum.spl");
+                interpret("doc/examples/commons/listsum1.spl");
+                interpret("doc/examples/commons/listsum2.spl");
                 interpret("doc/examples/commons/map.spl");
                 interpret("doc/examples/commons/minus.spl");
                 interpret("doc/examples/commons/pairmax.spl");

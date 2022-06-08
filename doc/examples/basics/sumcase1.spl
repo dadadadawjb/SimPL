@@ -1,0 +1,5 @@
+let top = fn p => (case p of inl x1 => fst x1 | inr x2 => hd x2) in
+  top inr (3::2::1::nil)
+end
+(* int *)
+(* ==> 3 *)

@@ -86,10 +86,16 @@ public class ParserTest {
         parse("doc/examples/basics/pair1.spl");
         parse("doc/examples/basics/pair2.spl");
         parse("doc/examples/basics/pair3.spl");
+        parse("doc/examples/basics/inl0.spl");
+        parse("doc/examples/basics/inr0.spl");
+        parse("doc/examples/basics/sumcase0.spl");
+        parse("doc/examples/basics/sumcase1.spl");
         parse("doc/examples/basics/rec0.spl");
         parse("doc/examples/basics/nil0.spl");
         parse("doc/examples/basics/cons0.spl");
         parse("doc/examples/basics/cons0_error.spl");
+        parse("doc/examples/basics/listcase0.spl");
+        parse("doc/examples/basics/listcase1.spl");
         parse("doc/examples/basics/ref0.spl");
         parse("doc/examples/basics/ref1.spl");
         parse("doc/examples/basics/ref2.spl");
@@ -156,7 +162,8 @@ public class ParserTest {
         parse("doc/examples/commons/gcd2.spl");
         parse("doc/examples/commons/iseven.spl");
         parse("doc/examples/commons/lists.spl");
-        parse("doc/examples/commons/listsum.spl");
+        parse("doc/examples/commons/listsum1.spl");
+        parse("doc/examples/commons/listsum2.spl");
         parse("doc/examples/commons/map.spl");
         parse("doc/examples/commons/minus.spl");
         parse("doc/examples/commons/pairmax.spl");

@@ -75,6 +75,22 @@ $$
 $$
 
 $$
+\frac{E ; (M, p, e) \Downarrow (M', p', v)}{E ; (M, p, \operatorname{inl} e) \Downarrow (M', p', \operatorname{inl} v)}(EEM-SumInl)
+$$
+
+$$
+\frac{E ; (M, p, e) \Downarrow (M', p', v)}{E ; (M, p, \operatorname{inr} e) \Downarrow (M', p', \operatorname{inr} v)}(EEM-SumInr)
+$$
+
+$$
+\frac{E ; (M, p, e) \Downarrow (M', p', \operatorname{inl} v) \qquad E, x_1:v ; (M', p', e_1) \Downarrow (M'', p'', v_1)}{E ; (M, p, \operatorname{case} e \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1 \mid \operatorname{inr} x_2 \Rightarrow e_2) \Downarrow (M'', p'', v_1)}(EEM-SumCase1)
+$$
+
+$$
+\frac{E ; (M, p, e) \Downarrow (M', p', \operatorname{inr} v) \qquad E, x_2:v ; (M', p', e_2) \Downarrow (M'', p'', v_2)}{E ; (M, p, \operatorname{case} e \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1 \mid \operatorname{inr} x_2 \Rightarrow e_2) \Downarrow (M'', p'', v_2)}(EEM-SumCase2)
+$$
+
+$$
 \frac{E, x : \{\operatorname{rec}, x, e, E\} ; (M, p, e) \Downarrow (M', p', v)}{E ; (M, p, \operatorname{rec} x \Rightarrow e) \Downarrow (M', p', v)}(EEM-Rec)
 $$
 
@@ -84,6 +100,14 @@ $$
 
 $$
 \frac{E ; (M, p, e_1) \Downarrow (M', p', v_1) \qquad E ; (M', p', e_2) \Downarrow (M'', p'', v_2)}{E ; (M, p, e_1::e_2) \Downarrow (M'', p'', v_1::v_2)}(EEM-Cons)
+$$
+
+$$
+\frac{E ; (M, p, e) \Downarrow (M', p', nil) \qquad E ; (M', p', e_1) \Downarrow (M'', p'', v_1)}{E ; (M, p, \operatorname{case} e \operatorname{of} nil \Rightarrow e_1 \mid x_1::x_2 \Rightarrow e_2) \Downarrow (M'', p'', v_1)}(EEM-CaseNil)
+$$
+
+$$
+\frac{E ; (M, p, e) \Downarrow (M', p', v_1::v_2) \qquad E, x_1:v_1, x_2:v_2 ; (M', p', e_2) \Downarrow (M'', p'', v_2)}{E ; (M, p, \operatorname{case} e \operatorname{of} nil \Rightarrow e_1 \mid x_1::x_2 \Rightarrow e_2) \Downarrow (M'', p'', v_2)}(EEM-CaseCons)
 $$
 
 $$
