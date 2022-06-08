@@ -49,13 +49,15 @@ public class OrElse extends BinaryExpr {
         Value leftValue = l.eval(s);        // first left
         if (!(leftValue instanceof BoolValue))
             throw new RuntimeError("OrElse requires left BoolValue");                           // actually never reach here depending on type checking
-        if (((BoolValue) leftValue).equals(Value.TRUE)) {
+        if (((BoolValue) leftValue).equal(Value.TRUE)) {
             return Value.TRUE;              // no need evaluate right
-        } else {
+        } else if (((BoolValue) leftValue).equal(Value.FALSE)) {
             Value rightValue = r.eval(s);   // then right
             if (!(rightValue instanceof BoolValue))
                 throw new RuntimeError("OrElse requires right BoolValue");                          // actually never reach here depending on type checking
             return rightValue;
+        } else {
+            throw new RuntimeError("OrElse left is either TRUE or FALSE");                           // actually never reach here depending on BoolValue's only two instances
         }
     }
 

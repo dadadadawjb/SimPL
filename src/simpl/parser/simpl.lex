@@ -43,23 +43,25 @@ Whitespace = {LineTerm}|[ \t\f]
     "(*" { commentCount = 1; yybegin(YYCOMMENT); }
     "*)" { throw new SyntaxError("Comment mismatch, extra *) found", yyline, yycolumn); }
     
-    "nil"     { return token(NIL); }
-    "ref"     { return token(REF); }
-    "fn"      { return token(FN); }
-    "rec"     { return token(REC); }
-    "let"     { return token(LET); }
-    "in"      { return token(IN); }
-    "end"     { return token(END); }
-    "if"      { return token(IF); }
-    "then"    { return token(THEN); }
-    "else"    { return token(ELSE); }
-    "while"   { return token(WHILE); }
-    "do"      { return token(DO); }
-    "true"    { return token(TRUE); }
-    "false"   { return token(FALSE); }
-    "not"     { return token(NOT); }
-    "andalso" { return token(ANDALSO); }
-    "orelse"  { return token(ORELSE); }
+    "nil"      { return token(NIL); }
+    "ref"      { return token(REF); }
+    "fn"       { return token(FN); }
+    "rec"      { return token(REC); }
+    "let"      { return token(LET); }
+    "in"       { return token(IN); }
+    "end"      { return token(END); }
+    "if"       { return token(IF); }
+    "then"     { return token(THEN); }
+    "else"     { return token(ELSE); }
+    "while"    { return token(WHILE); }
+    "do"       { return token(DO); }
+    "break"    { return token(BREAK); }
+    "continue" { return token(CONTINUE); }
+    "true"     { return token(TRUE); }
+    "false"    { return token(FALSE); }
+    "not"      { return token(NOT); }
+    "andalso"  { return token(ANDALSO); }
+    "orelse"   { return token(ORELSE); }
     
     "+"  { return token(ADD); }
     "-"  { return token(SUB); }

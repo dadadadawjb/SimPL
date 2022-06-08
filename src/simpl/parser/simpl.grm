@@ -20,7 +20,7 @@ terminal REF;
 terminal FN, REC;
 terminal LET, IN, END;
 terminal IF, THEN, ELSE;
-terminal WHILE, DO;
+terminal WHILE, DO, BREAK, CONTINUE;
 terminal TRUE, FALSE;
 terminal NOT, ANDALSO, ORELSE;
 terminal ADD, SUB, MUL, DIV, MOD, NEG;
@@ -34,7 +34,7 @@ terminal String ID;
 
 non terminal Expr e;
 
-precedence right NUM, ID, TRUE, FALSE, NIL, FN, REC, ARROW, IF, ELSE, WHILE, DO, UNIT;
+precedence right NUM, ID, TRUE, FALSE, NIL, FN, REC, ARROW, IF, ELSE, WHILE, DO, BREAK, CONTINUE, UNIT;
 precedence left SEMI;
 precedence nonassoc ASSIGN;
 precedence right ORELSE;
@@ -44,7 +44,7 @@ precedence right CONS;
 precedence left ADD, SUB;
 precedence left MUL, DIV, MOD;
 precedence left APP, LPAREN;
-precedence right NEG, NOT, REF, DEREF;
+precedence right NEG, NOT, DEREF, REF;
 
 start with e;
 
@@ -80,6 +80,8 @@ e ::= NUM:n {: RESULT = new IntegerLiteral(n.intValue()); :}
     | LET ID:x EQ e:e1 IN e:e2 END {: RESULT = new Let(symbol(x), e1, e2); :}
     | IF e:e1 THEN e:e2 ELSE e:e3 {: RESULT = new Cond(e1, e2, e3); :}
     | WHILE e:e1 DO e:e2 {: RESULT = new Loop(e1, e2); :}
+    | BREAK {: RESULT = new Break(); :}
+    | CONTINUE {: RESULT = new Continue(); :}
     | UNIT {: RESULT = new Unit(); :}
     | LPAREN e:e RPAREN {: RESULT = new Group(e); :}
     ;

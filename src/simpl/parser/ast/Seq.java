@@ -42,14 +42,17 @@ public class Seq extends BinaryExpr {
     @Override
     public Value eval(State s) throws RuntimeError {
         // TODO
-        // Value leftValue = l.eval(s);        // first left
-        // if (!(leftValue.equals(Value.UNIT)))
-        //     throw new RuntimeError("Seq requires left unit");                           // actually never reach here depending on type checking
-        
-        // since unit value cannot be compared
-        l.eval(s);                          // first left
-        Value rightValue = r.eval(s);       // then right
-        return rightValue;
+        Value leftValue = l.eval(s);        // first left
+        if (leftValue.equal(Value.UNIT)) {
+            Value rightValue = r.eval(s);   // then right
+            return rightValue;
+        } else if (leftValue.equal(Value.BREAK)) {
+            return Value.BREAK;             // directly break
+        } else if (leftValue.equal(Value.CONTINUE)) {
+            return Value.CONTINUE;          // directly continue
+        } else {
+            throw new RuntimeError("Seq left requires either BREAK, CONTINUE or UNIT");                           // actually never reach here depending on type checking
+        }
     }
 
     @Override

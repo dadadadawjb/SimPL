@@ -14,7 +14,7 @@
 * `fn` &emsp; `rec`
 * `let` &emsp; `in` &emsp; `end`
 * `if` &emsp; `then` &emsp; `else`
-* `while` &emsp; `do`
+* `while` &emsp; `do` &emsp; `break` &emsp; `continue`
 * `true` &emsp; `false`
 * `not` &emsp; `andalso` &emsp; `orelse`
 > :warning: keywords cannot be bound to anything

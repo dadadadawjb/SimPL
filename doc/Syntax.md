@@ -90,7 +90,10 @@ e &::= \quad \ldots & \\
  & & \\
  &| \qquad e_1 ; e_2 &\text{(sequence)} \\
  & & \\
- &| \qquad \operatorname{while} e_1 \operatorname{do} e_2 &\text{(while loop)}
+ &| \qquad \operatorname{while} e_1 \operatorname{do} e_2 &\text{(while loop)} \\
+ &| \qquad <e_1, e_2> &\text{(sequence pair)} \\
+ &| \qquad break &\text{(break)} \\
+ &| \qquad continue &\text{(continue)}
 \end{aligned}
 $$
 
@@ -100,7 +103,10 @@ $$
 \begin{aligned}
 v &::= \quad \ldots & \\
  &| \qquad l &\text{(store location value)} \\
- &| \qquad () &\text{(unit value)}
+ &| \qquad () &\text{(unit value)} \\
+ & & \\
+ &| \qquad break &\text{(break value)} \\
+ &| \qquad continue &\text{(continue value)}
 \end{aligned}
 $$
 

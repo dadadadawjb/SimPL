@@ -42,10 +42,12 @@ public class Not extends UnaryExpr {
         Value value = e.eval(s);            // first the body
         if (!(value instanceof BoolValue))
             throw new RuntimeError("Not requires BoolValue");                            // actually never reach here depending on type checking
-        if (((BoolValue) value).equals(Value.TRUE))
+        if (((BoolValue) value).equal(Value.TRUE))
             return Value.FALSE;
-        else
+        else if (((BoolValue) value).equal(Value.FALSE))
             return Value.TRUE;
+        else
+            throw new RuntimeError("Not body is either TRUE or FALSE");                           // actually never reach here depending on BoolValue's only two instances
     }
 
     @Override

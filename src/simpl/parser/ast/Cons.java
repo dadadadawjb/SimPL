@@ -49,7 +49,7 @@ public class Cons extends BinaryExpr {
         // TODO
         Value leftValue = l.eval(s);        // first left
         Value rightValue = r.eval(s);       // then right
-        if (!(rightValue instanceof ConsValue) && !(rightValue.equals(Value.NIL)))
+        if (!(rightValue instanceof ConsValue) && !(rightValue.equal(Value.NIL)))
             throw new RuntimeError("Cons requires right ConsValue or NilValue");            // actually never reach here depending on type checking
         return new ConsValue(leftValue, rightValue);
     }

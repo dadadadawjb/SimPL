@@ -130,3 +130,15 @@ $$
 $$
 (\operatorname{while} e_1 \operatorname{do} e_2)[e/x] = \operatorname{while} e_1[e/x] \operatorname{do} e_2[e/x]
 $$
+
+$$
+(break)[e/x] = break
+$$
+
+$$
+(continue)[e/x] = continue
+$$
+
+$$
+<e_1, e_2>[e/x] = <e_1[e/x], e_2[e/x]>
+$$

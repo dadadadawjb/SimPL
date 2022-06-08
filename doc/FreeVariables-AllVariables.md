@@ -140,6 +140,21 @@ FV(\operatorname{while} e_1 \operatorname{do} e_2) = FV(e_1) \cup FV(e_2)
 $$
 > $FV(\operatorname{while} e_1 \operatorname{do} e_2) = FV(\operatorname{if} e_1 \operatorname{then} (e_2;\operatorname{while} e_1 \operatorname{do} e_2) \operatorname{else} ()) = FV(e_1) \cup FV(e_2)$
 
+$$
+FV(<e_1, e_2>) = FV(e_1) \cup FV(e_2)
+$$
+> unknown
+
+$$
+FV(break) = \emptyset
+$$
+> unknown
+
+$$
+FV(continue) = \emptyset
+$$
+> unknown
+
 
 # All Variables
 > $Vars(e)$ denotes all variables existing in $e$
@@ -259,3 +274,18 @@ $$
 Vars(\operatorname{while} e_1 \operatorname{do} e_2) = Vars(e_1) \cup Vars(e_2)
 $$
 > $Vars(\operatorname{while} e_1 \operatorname{do} e_2) = Vars(\operatorname{if} e_1 \operatorname{then} (e_2;\operatorname{while} e_1 \operatorname{do} e_2) \operatorname{else} ()) = Vars(e_1) \cup Vars(e_2)$
+
+$$
+Vars(<e_1, e_2>) = Vars(e_1) \cup Vars(e_2)
+$$
+> unknown
+
+$$
+Vars(break) = \emptyset
+$$
+> unknown
+
+$$
+Vars(continue) = \emptyset
+$$
+> unknown

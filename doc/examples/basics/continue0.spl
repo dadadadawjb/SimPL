@@ -1,0 +1,4 @@
+(* Need to raise syntax error, ensure continue only appearing in while body *)
+continue; 1
+(* int *)
+(* ==> continue *)

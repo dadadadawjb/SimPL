@@ -22,4 +22,13 @@ class NilValue extends Value {
         else
             return false;
     }
+
+    @Override
+    public boolean equal(Object other) {
+        // TODO
+        if (other instanceof NilValue)
+            return true;
+        else
+            return false;
+    }
 }

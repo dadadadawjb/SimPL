@@ -1,0 +1,4 @@
+(* Need to raise syntax error, ensure break only appearing in while body *)
+break; 1
+(* int *)
+(* ==> break *)

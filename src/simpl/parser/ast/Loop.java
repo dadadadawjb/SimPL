@@ -52,12 +52,14 @@ public class Loop extends Expr {
         Value value1 = e1.eval(s);                  // first the condition
         if (!(value1 instanceof BoolValue))
             throw new RuntimeError("Loop requires BoolValue");          // actually never reach here depending on type checking
-        if (((BoolValue) value1).equals(Value.TRUE)) {
-            Expr newExpr = new Seq(e2, this);
+        if (((BoolValue) value1).equal(Value.TRUE)) {
+            Expr newExpr = new SeqPair(e2, this);
             Value resultValue = newExpr.eval(s);    // if true then do the loop
             return resultValue;
-        } else {
+        } else if (((BoolValue) value1).equal(Value.FALSE)) {
             return Value.UNIT;                      // if false then unit
+        } else {
+            throw new RuntimeError("Loop condition is either TRUE or FALSE");                           // actually never reach here depending on BoolValue's only two instances
         }
     }
 

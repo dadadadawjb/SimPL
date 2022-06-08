@@ -106,6 +106,14 @@ $$
 \frac{\Gamma \vdash e_1:t_1, q_1 \qquad \Gamma \vdash e_2:t_2, q_2}{\Gamma \vdash \operatorname{while} e_1 \operatorname{do} e_2 : unit, q_1 \cup q_2 \cup \{t_1=bool, t_2=unit\}}(CT-Loop)
 $$
 
+$$
+\frac{}{\Gamma \vdash break : unit, \{\}}(CT-Break)
+$$
+
+$$
+\frac{}{\Gamma \vdash continue : unit, \{\}}(CT-Continue)
+$$
+
 ## Polymorphism
 $$
 \frac{\Gamma \vdash e_1:t_1, q_1 \qquad \Gamma \vdash e_2[e_1/x]:t_2, q_2}{\Gamma \vdash \operatorname{let} x=e_1 \operatorname{in} e_2 \operatorname{end} : t_2, q_1 \cup q_2}(CT-LetPoly1)

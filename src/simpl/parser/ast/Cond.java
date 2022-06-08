@@ -61,12 +61,12 @@ public class Cond extends Expr {
         Value value1 = e1.eval(s);          // first the first
         if (!(value1 instanceof BoolValue))
             throw new RuntimeError("Cond requires the first BoolValue");                            // actually never reach here depending on type checking
-        if (((BoolValue) value1).equals(Value.TRUE))
+        if (((BoolValue) value1).equal(Value.TRUE))
             return e2.eval(s);              // if true then the second
-        else if (((BoolValue) value1).equals(Value.FALSE))
+        else if (((BoolValue) value1).equal(Value.FALSE))
             return e3.eval(s);              // if false then the third
         else
-            throw new RuntimeError("Cond first is either TRUE or FALSE");                           // actually never reach here depending on type checking
+            throw new RuntimeError("Cond first is either TRUE or FALSE");                           // actually never reach here depending on BoolValue's only two instances
     }
 
     @Override

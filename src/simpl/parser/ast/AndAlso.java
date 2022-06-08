@@ -49,13 +49,15 @@ public class AndAlso extends BinaryExpr {
         Value leftValue = l.eval(s);        // first left
         if (!(leftValue instanceof BoolValue))
             throw new RuntimeError("AndAlso requires left BoolValue");          // actually never reach here depending on type checking
-        if (((BoolValue) leftValue).equals(Value.TRUE)) {
+        if (((BoolValue) leftValue).equal(Value.TRUE)) {
             Value rightValue = r.eval(s);   // then right
             if (!(rightValue instanceof BoolValue))
                 throw new RuntimeError("AndAlso requires right BoolValue");         // actually never reach here depending on type checking
             return rightValue;
-        } else {
+        } else if (((BoolValue) leftValue).equal(Value.FALSE)) {
             return Value.FALSE;             // no need evaluate right
+        } else {
+            throw new RuntimeError("AndAlso left is either TRUE or FALSE");                           // actually never reach here depending on BoolValue's only two instances
         }
     }
 

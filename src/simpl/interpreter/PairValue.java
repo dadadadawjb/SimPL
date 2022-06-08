@@ -28,4 +28,15 @@ public class PairValue extends Value {
             return false;
         }
     }
+
+    @Override
+    public boolean equal(Object other) {
+        // TODO
+        if (other instanceof PairValue) {
+            PairValue otherPairValue = (PairValue) other;
+            return v1.equal(otherPairValue.v1) && v2.equal(otherPairValue.v2);
+        } else {
+            return false;
+        }
+    }
 }

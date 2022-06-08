@@ -143,6 +143,13 @@ public class Interpreter {
                 interpret("doc/examples/basics/seq0.spl");
                 interpret("doc/examples/basics/seq0_error.spl");
                 interpret("doc/examples/basics/loop0.spl");
+                interpret("doc/examples/basics/break0.spl");
+                interpret("doc/examples/basics/break1.spl");
+                interpret("doc/examples/basics/break2.spl");
+                interpret("doc/examples/basics/break1_error.spl");
+                interpret("doc/examples/basics/continue0.spl");
+                interpret("doc/examples/basics/continue1.spl");
+                interpret("doc/examples/basics/continue1_error.spl");
                 interpret("doc/examples/basics/group0.spl");
                 interpret("doc/examples/basics/fst0.spl");
                 interpret("doc/examples/basics/fst0_error.spl");

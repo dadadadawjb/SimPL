@@ -1,0 +1,6 @@
+let x=ref 3 in
+  while true do
+    if (!x <> 0) then (x := !x-1) else (break; x := 1)
+end
+(* unit *)
+(* ==> unit *)

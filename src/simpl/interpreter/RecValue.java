@@ -29,4 +29,10 @@ public class RecValue extends Value {
         // TODO
         return false;       // not equality type
     }
+
+    @Override
+    public boolean equal(Object other) {
+        // TODO
+        return false;       // not correct, but never used to judge recursion shape comparison
+    }
 }

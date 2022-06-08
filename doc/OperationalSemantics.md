@@ -108,9 +108,29 @@ $$
 $$
 
 $$
-\frac{E ; (M, p, e_1) \Downarrow (M', p', true) \qquad E ; (M', p', e_2 ; \operatorname{while} e_1 \operatorname{do} e_2) \Downarrow (M'', p'', v)}{E ; \left( M, p, \operatorname{while} e_1 \operatorname{do} e_2 \right) \Downarrow \left( M'', p'', v \right)}(EEM-Loop1)
+\frac{E ; \left( M, p, e_1 \right) \Downarrow \left( M', p', break \right)}{E ; \left( M, p, e_1;e_2 \right) \Downarrow \left( M', p', break \right)}(EEM-SeqBreak)
+$$
+
+$$
+\frac{E ; \left( M, p, e_1 \right) \Downarrow \left( M', p', continue \right)}{E ; \left( M, p, e_1;e_2 \right) \Downarrow \left( M', p', continue \right)}(EEM-SeqContinue)
+$$
+
+$$
+\frac{E ; (M, p, e_1) \Downarrow (M', p', true) \qquad E ; (M', p', <e_2, \operatorname{while} e_1 \operatorname{do} e_2>) \Downarrow (M'', p'', v)}{E ; \left( M, p, \operatorname{while} e_1 \operatorname{do} e_2 \right) \Downarrow \left( M'', p'', v \right)}(EEM-Loop1)
 $$
 
 $$
 \frac{E ; (M, p, e_1) \Downarrow (M', p', false)}{E ; \left( M, p, \operatorname{while} e_1 \operatorname{do} e_2 \right) \Downarrow \left( M', p', () \right)}(EEM-Loop2)
+$$
+
+$$
+\frac{E ; (M, p, e_1) \Downarrow (M', p', break)}{E ; (M, p, <e_1, e_2>) \Downarrow (M', p', ())}(EEM-Break)
+$$
+
+$$
+\frac{E ; (M, p, e_1) \Downarrow (M', p', continue) \qquad E ; (M', p', e_2) \Downarrow (M'', p'', v_2)}{E ; (M, p, <e_1, e_2>) \Downarrow (M'', p'', v_2)}(EEM-Continue)
+$$
+
+$$
+\frac{E ; (M, p, e_1) \Downarrow (M', p', ()) \qquad E ; (M', p', e_2) \Downarrow (M'', p'', v_2)}{E ; (M, p, <e_1, e_2>) \Downarrow (M'', p'', v_2)}(EEM-SeqPairUnit)
 $$

@@ -33,4 +33,15 @@ public class ConsValue extends Value {
             return false;
         }
     }
+
+    @Override
+    public boolean equal(Object other) {
+        // TODO
+        if (other instanceof ConsValue) {
+            ConsValue otherConsValue = (ConsValue) other;
+            return v1.equal(otherConsValue.v1) && v2.equal(otherConsValue.v2);
+        } else {
+            return false;
+        }
+    }
 }

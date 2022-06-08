@@ -1,17 +1,17 @@
 package simpl.interpreter;
 
-class UnitValue extends Value {
+class ContinueValue extends Value {
 
-    protected UnitValue() {
+    protected ContinueValue() {
     }
 
     public String toString() {
-        return "unit";
+        return "continue";
     }
 
     @Override
     public String toString(State s) {
-        return "unit";
+        return "continue";
     }
 
     @Override
@@ -23,7 +23,7 @@ class UnitValue extends Value {
     @Override
     public boolean equal(Object other) {
         // TODO
-        if (other instanceof UnitValue)
+        if (other instanceof ContinueValue)
             return true;
         else
             return false;

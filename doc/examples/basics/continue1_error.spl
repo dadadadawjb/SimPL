@@ -1,0 +1,9 @@
+let count=ref 0 in
+  let x=ref 5 in
+    (while (!x <> 0) do
+      ((if (!x % 2 = 0) then (x := !x-1) else (x := !x-1; continue; 1)); count := !count+1));
+    !count
+  end
+end
+(* int *)
+(* ==> 0 *)
