@@ -1,5 +1,8 @@
 package simpl.typing;
 
+import java.util.Set;
+import java.util.HashSet;
+
 final class IntType extends Type {
 
     protected IntType() {
@@ -32,6 +35,13 @@ final class IntType extends Type {
     public Type replace(TypeVar a, Type t) {
         // TODO
         return Type.INT;
+    }
+
+    @Override
+    public Set<TypeVar> allTypeVars() {
+        // TODO
+        Set<TypeVar> result = new HashSet<>();
+        return result;
     }
 
     public String toString() {

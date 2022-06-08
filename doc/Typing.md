@@ -105,3 +105,12 @@ $$
 $$
 \frac{\Gamma \vdash e_1:t_1, q_1 \qquad \Gamma \vdash e_2:t_2, q_2}{\Gamma \vdash \operatorname{while} e_1 \operatorname{do} e_2 : unit, q_1 \cup q_2 \cup \{t_1=bool, t_2=unit\}}(CT-Loop)
 $$
+
+## Polymorphism
+$$
+\frac{\Gamma \vdash e_1:t_1, q_1 \qquad \Gamma \vdash e_2[e_1/x]:t_2, q_2}{\Gamma \vdash \operatorname{let} x=e_1 \operatorname{in} e_2 \operatorname{end} : t_2, q_1 \cup q_2}(CT-LetPoly1)
+$$
+
+$$
+\frac{\Gamma \vdash e_1:t'_1, q_1 \qquad \Gamma, x:\forall t_1 \ldots t_n . t'_1 \vdash e_2:t'_2, q_2}{\Gamma \vdash \operatorname{let} x=e_1 \operatorname{in} e_2 \operatorname{end} : t'_2, q_1 \cup q_2}(CT-LetPoly2)
+$$

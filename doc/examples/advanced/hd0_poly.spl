@@ -1,0 +1,3 @@
+if hd (true::false::nil) then hd (3::2::1::nil) else 0
+(* int *)
+(* ==> 3 *)

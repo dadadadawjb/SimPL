@@ -161,12 +161,19 @@ public class Interpreter {
                 interpret("doc/examples/basics/succ0.spl");
                 interpret("doc/examples/basics/succ0_error.spl");
 
+                interpret("doc/examples/advanced/let0_poly.spl");
+                interpret("doc/examples/advanced/let1_poly.spl");
+                interpret("doc/examples/advanced/let2_poly.spl");
+                interpret("doc/examples/advanced/fst0_poly.spl");
                 interpret("doc/examples/advanced/fst0_redefine.spl");
                 interpret("doc/examples/advanced/fst1_redefine.spl");
+                interpret("doc/examples/advanced/snd0_poly.spl");
                 interpret("doc/examples/advanced/snd0_redefine.spl");
                 interpret("doc/examples/advanced/snd1_redefine.spl");
+                interpret("doc/examples/advanced/hd0_poly.spl");
                 interpret("doc/examples/advanced/hd0_redefine.spl");
                 interpret("doc/examples/advanced/hd1_redefine.spl");
+                interpret("doc/examples/advanced/tl0_poly.spl");
                 interpret("doc/examples/advanced/tl0_redefine.spl");
                 interpret("doc/examples/advanced/tl1_redefine.spl");
                 interpret("doc/examples/advanced/iszero0_redefine.spl");

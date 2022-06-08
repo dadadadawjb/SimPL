@@ -1,0 +1,4 @@
+let id=fn x => (let y=ref x in !y end)
+in id 1 end
+(* int *)
+(* ==> 1 *)

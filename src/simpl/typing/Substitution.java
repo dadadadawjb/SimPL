@@ -1,5 +1,7 @@
 package simpl.typing;
 
+import java.util.Set;
+import java.util.HashSet;
 import simpl.parser.Symbol;
 
 // the substitution / solution
@@ -62,6 +64,16 @@ public abstract class Substitution {
                 Type type = E.get(x);
                 return apply(type);
             }
+
+            @Override
+			public Set<TypeVar> allTypeVars() {
+				Set<TypeVar> result = new HashSet<>();
+				for (TypeVar tv : E.allTypeVars()) {
+					Type tvNew = apply(tv);
+					result.addAll(tvNew.allTypeVars());
+				}
+				return result;
+			}
         };
     }
 }

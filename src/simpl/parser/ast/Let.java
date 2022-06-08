@@ -12,8 +12,11 @@ import simpl.typing.Type;
 import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;
+import simpl.typing.PolyType;
 
 public class Let extends Expr {
+    private static final int LET_POLYMORPHISM = 2;      // 0 for no let-polymorphism, 1 for substitution based let-polymorphism, 2 for universal type variable based let-polymorphism
+
     public Symbol x;
     public Expr e1, e2;
 
@@ -30,17 +33,48 @@ public class Let extends Expr {
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
         // TODO
-        // not Let-Polymorphism
-        TypeResult typeResult1 = e1.typecheck(E);                               // first check `e1`
-        TypeEnv newE1 = typeResult1.s.compose(E);                               // update the new type environment for solving the rest type constraints
-        Type type1 = typeResult1.s.apply(typeResult1.t);                        // do substitution
-        TypeEnv newE2 = TypeEnv.of(newE1, x, type1);                            // overlap `x -> t1` into type environment
-        TypeResult typeResult2 = e2.typecheck(newE2);                           // then check `e2`
-        
-        Substitution substitution = typeResult1.s.compose(typeResult2.s);       // first solve left `q1` then right `q2`
-        Type type2 = substitution.apply(typeResult2.t);                         // do substitution
-        
-        return TypeResult.of(substitution, type2);
+        switch (LET_POLYMORPHISM) {
+            case 0: {
+                // not Let-Polymorphism
+                TypeResult typeResult1 = e1.typecheck(E);                               // first check `e1`
+                TypeEnv newE1 = typeResult1.s.compose(E);                               // update the new type environment for solving the rest type constraints
+                Type type1 = typeResult1.s.apply(typeResult1.t);                        // do substitution
+                TypeEnv newE2 = TypeEnv.of(newE1, x, type1);                            // overlap `x -> t1` into type environment
+                TypeResult typeResult2 = e2.typecheck(newE2);                           // then check `e2`
+                
+                Substitution substitution = typeResult1.s.compose(typeResult2.s);       // first solve left `q1` then right `q2`
+                Type type2 = substitution.apply(typeResult2.t);                         // do substitution
+                
+                return TypeResult.of(substitution, type2);
+            }
+            case 1: {
+                // Let-Polymorphism, substitution
+                TypeResult typeResult1 = e1.typecheck(E);                               // first check `e1`
+                TypeEnv newE = typeResult1.s.compose(E);                                // update the new type environment for solving the rest type constraints
+                TypeResult typeResult2 = e2.substitute(x, e1).typecheck(newE);          // then check `e2[e1/x]`
+                
+                Substitution substitution = typeResult1.s.compose(typeResult2.s);       // first solve left `q1` then right `q2`
+                Type type2 = substitution.apply(typeResult2.t);                         // do substitution
+                
+                return TypeResult.of(substitution, type2);
+            }
+            case 2: {
+                // Let-Polymorphism, universal polymorphism
+                TypeResult typeResult1 = e1.typecheck(E);                               // first check `e1`
+                TypeEnv newE1 = typeResult1.s.compose(E);                               // update the new type environment for solving the rest type constraints
+                Type type1 = typeResult1.s.apply(typeResult1.t);                        // do substitution
+                PolyType type1Last = new PolyType(type1, newE1);                        // create universal polymorphism type
+                TypeEnv newE2 = TypeEnv.of(newE1, x, type1Last);                        // overlap `x -> t1` into type environment
+                TypeResult typeResult2 = e2.typecheck(newE2);                           // then check `e2`
+
+                Substitution substitution = typeResult1.s.compose(typeResult2.s);       // first solve left `q1` then right `q2`
+                Type type2 = substitution.apply(typeResult2.t);                         // do substitution
+                
+                return TypeResult.of(substitution, type2);
+            }
+            default:
+                throw new TypeError("Unsupported Let-Polymorphism");                // actually never reach here
+        }
     }
 
     @Override

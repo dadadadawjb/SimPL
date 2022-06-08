@@ -1,5 +1,8 @@
 package simpl.typing;
 
+import java.util.Set;
+import java.util.HashSet;
+
 public final class ArrowType extends Type {
 
     // t1 -> t2
@@ -42,6 +45,14 @@ public final class ArrowType extends Type {
     public Type replace(TypeVar a, Type t) {
         // TODO
         return new ArrowType(t1.replace(a, t), t2.replace(a, t));
+    }
+
+    @Override
+    public Set<TypeVar> allTypeVars() {
+        // TODO
+        Set<TypeVar> result = new HashSet<>(t1.allTypeVars());
+        result.addAll(t2.allTypeVars());
+        return result;
     }
 
     public String toString() {

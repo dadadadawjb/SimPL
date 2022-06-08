@@ -1,5 +1,8 @@
 package simpl.typing;
 
+import java.util.Set;
+import java.util.HashSet;
+
 final class UnitType extends Type {
 
     protected UnitType() {
@@ -32,6 +35,13 @@ final class UnitType extends Type {
     public Type replace(TypeVar a, Type t) {
         // TODO
         return Type.UNIT;
+    }
+
+    @Override
+    public Set<TypeVar> allTypeVars() {
+        // TODO
+        Set<TypeVar> result = new HashSet<>();
+        return result;
     }
 
     public String toString() {

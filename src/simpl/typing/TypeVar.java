@@ -1,5 +1,7 @@
 package simpl.typing;
 
+import java.util.Set;
+import java.util.HashSet;
 import simpl.parser.Symbol;
 
 public class TypeVar extends Type {
@@ -46,6 +48,14 @@ public class TypeVar extends Type {
     public Type replace(TypeVar a, Type t) {
         // TODO
         return (this.contains(a)) ? t : this;
+    }
+
+    @Override
+    public Set<TypeVar> allTypeVars() {
+        // TODO
+        Set<TypeVar> result = new HashSet<>();
+        result.add(this);
+        return result;
     }
 
     public String toString() {

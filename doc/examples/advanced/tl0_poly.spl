@@ -1,0 +1,3 @@
+if hd (tl (false::true::nil)) then hd (tl (3::2::1::nil)) else 0
+(* int *)
+(* ==> 2 *)

@@ -1,0 +1,3 @@
+let id=(fn x => x) in (id 1, id true) end
+(* int * bool *)
+(* ==> pair@1@true *)

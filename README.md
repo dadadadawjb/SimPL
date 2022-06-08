@@ -7,11 +7,11 @@ SimPL is a simplified dialect of ML, which can be used for both *functional* and
 * Simply-typed lambda calculus with extensions (boolean, integer, pair, tuple(expected), record(expected), sum(expected), variant(expected), recursion, let-recursion(expected), mutual recursion(expected), list, pattern match(expected), infinite stream(expected))
 * Imperative programming features (reference, dereference, assignment, while loop, break and continue(expected), error(expected), array(expected), print(expected), define(expected))
 * Principal type inference with constraint typing rules and unification algorithm
-* Substitution based and universal polymorphism based let-polymorphism(expected)
+* Substitution based and universal polymorphism based let-polymorphism
 * Abstract data types of existential polymorphism(expected)
 * Overloading of ad-hoc polymorphism(expected)
 * Operational semantics including both environment model and memory store
-* Predefined generic programming template library functions of universal polymorphism(expected)
+* Predefined generic programming template library functions of universal polymorphism
 * Predefined programming computable functions
 * Reference counting, mark-and-sweep and copy collection based garbage collection(expected)
 * Lazy evaluation(expected)
@@ -109,9 +109,9 @@ end
   - [ ] and
   - [ ] error, raise, try
 - [ ] optimization
-  - [ ] substitution based let-polymorphism
-  - [ ] universal polymorphism based let-polymorphism
-  - [ ] universal parametric polymorphism
+  - [x] substitution based let-polymorphism
+  - [x] universal polymorphism based let-polymorphism
+  - [x] universal parametric polymorphism
   - [ ] existential parametric polymorphism
   - [ ] subtype polymorphism
   - [ ] ad-hoc polymorphism
