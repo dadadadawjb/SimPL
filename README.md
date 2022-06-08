@@ -4,16 +4,16 @@ SimPL is a simplified dialect of ML, which can be used for both *functional* and
 
 ## Support Features
 * Pure lambda calculus functional features (variable, function abstraction, function application)
-* Simply-typed lambda calculus with extensions (boolean, integer, pair, tuple(expected), record(expected), sum, variant(expected), recursion, let-recursion(expected), mutual recursion(expected), list, pattern match, infinite stream(expected))
-* Imperative programming features (reference, dereference, assignment, while loop, break and continue, error(expected), array(expected), print(expected), define(expected))
+* Simply-typed lambda calculus with extensions (boolean, integer, pair, ~~tuple~~, ~~record~~, sum, ~~variant~~, recursion, let-recursion(expected), mutual recursion(expected), list, pattern match)
+* Imperative programming features (reference, dereference, assignment, while loop, break and continue, error(expected), ~~array~~, print)
 * Principal type inference with constraint typing rules and unification algorithm
 * Substitution based and universal polymorphism based let-polymorphism
-* Abstract data types of existential polymorphism(expected)
+* ~~Abstract data types of existential polymorphism~~
 * Overloading of ad-hoc polymorphism(expected)
 * Operational semantics including both environment model and memory store
 * Predefined generic programming template library functions of universal polymorphism
 * Predefined programming computable functions
-* Reference counting(expected), mark-and-sweep and copy collection based garbage collection
+* ~~Reference counting~~, mark-and-sweep and copy collection based garbage collection
 * Lazy evaluation(expected)
 * Tail recursion(expected)
 * Rich example programs
@@ -95,16 +95,14 @@ end
   - [x] `typecheck()`
   - [x] `eval()`
 - [ ] more features
-  - [ ] tuple
-  - [ ] record
+  - [ ] ~~tuple~~
+  - [ ] ~~record~~
   - [x] sum
-  - [ ] variant
+  - [ ] ~~variant~~
   - [x] case
-  - [ ] infinite stream
   - [x] break and continue
-  - [ ] array
-  - [ ] define
-  - [ ] print
+  - [ ] ~~array~~
+  - [x] print, println
   - [ ] letrec
   - [ ] and
   - [ ] error, raise, try
@@ -112,11 +110,9 @@ end
   - [x] substitution based let-polymorphism
   - [x] universal polymorphism based let-polymorphism
   - [x] universal parametric polymorphism
-  - [ ] existential parametric polymorphism
+  - [ ] ~~existential parametric polymorphism~~
   - [ ] subtype polymorphism
   - [ ] ad-hoc polymorphism
-  - [ ] reference counting based garbage collection
+  - [ ] ~~reference counting based garbage collection~~
   - [x] mark-and-sweep based garbage collection
   - [x] copy collection garbage collection
-  - [ ] lazy evaluation
-  - [ ] tail recursion

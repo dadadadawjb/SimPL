@@ -1,0 +1,5 @@
+let x=ref 1 in
+  print !x; x := !x - 1; print x; true
+end
+(* bool *)
+(* ==> print(1)print(ref 0)true *)

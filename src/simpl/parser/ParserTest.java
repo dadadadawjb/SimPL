@@ -125,6 +125,8 @@ public class ParserTest {
         parse("doc/examples/basics/tl0.spl");
         parse("doc/examples/basics/tl0_error.spl");
         parse("doc/examples/basics/tl1_error.spl");
+        parse("doc/examples/basics/print0.spl");
+        parse("doc/examples/basics/println0.spl");
         parse("doc/examples/basics/iszero0.spl");
         parse("doc/examples/basics/iszero0_error.spl");
         parse("doc/examples/basics/pred0.spl");
@@ -147,6 +149,12 @@ public class ParserTest {
         parse("doc/examples/advanced/tl0_poly.spl");
         parse("doc/examples/advanced/tl0_redefine.spl");
         parse("doc/examples/advanced/tl1_redefine.spl");
+        parse("doc/examples/advanced/print0_poly.spl");
+        parse("doc/examples/advanced/print0_redefine.spl");
+        parse("doc/examples/advanced/print1_redefine.spl");
+        parse("doc/examples/advanced/println0_poly.spl");
+        parse("doc/examples/advanced/println0_redefine.spl");
+        parse("doc/examples/advanced/println1_redefine.spl");
         parse("doc/examples/advanced/iszero0_redefine.spl");
         parse("doc/examples/advanced/iszero1_redefine.spl");
         parse("doc/examples/advanced/pred0_redefine.spl");

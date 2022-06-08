@@ -25,7 +25,7 @@ public class hd extends FunValue {
         // x.v1
         Expr body = new Expr() {
             public String toString() {
-                return "hd";
+                return "hd x";
             }
 
             @Override

@@ -25,7 +25,7 @@ public class tl extends FunValue {
         // x.v2
         Expr body = new Expr() {
             public String toString() {
-                return "tl";
+                return "tl x";
             }
 
             @Override

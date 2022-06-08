@@ -36,6 +36,11 @@ public class DefaultTypeEnv extends TypeEnv {
         TypeVar tv6 = new TypeVar(true);
         E = TypeEnv.of(E, Symbol.symbol("tl"), new PolyType(new ArrowType(new ListType(tv6), new ListType(tv6))));
 
+        TypeVar tv7 = new TypeVar(true);
+		E = TypeEnv.of(E, Symbol.symbol("print"), new PolyType(new ArrowType(tv7, Type.UNIT)));
+        TypeVar tv8 = new TypeVar(true);
+		E = TypeEnv.of(E, Symbol.symbol("println"), new PolyType(new ArrowType(tv8, Type.UNIT)));
+
         E = TypeEnv.of(E, Symbol.symbol("iszero"), new ArrowType(Type.INT, Type.BOOL));
         E = TypeEnv.of(E, Symbol.symbol("pred"), new ArrowType(Type.INT, Type.INT));
         E = TypeEnv.of(E, Symbol.symbol("succ"), new ArrowType(Type.INT, Type.INT));

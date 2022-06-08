@@ -1,0 +1,3 @@
+let println=print in (println 1) end
+(* int *)
+(* ==> print(1)unit *)

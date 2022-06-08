@@ -167,6 +167,8 @@ public class Interpreter {
                 interpret("doc/examples/basics/tl0.spl");
                 interpret("doc/examples/basics/tl0_error.spl");
                 interpret("doc/examples/basics/tl1_error.spl");
+                interpret("doc/examples/basics/print0.spl");
+                interpret("doc/examples/basics/println0.spl");
                 interpret("doc/examples/basics/iszero0.spl");
                 interpret("doc/examples/basics/iszero0_error.spl");
                 interpret("doc/examples/basics/pred0.spl");
@@ -189,6 +191,12 @@ public class Interpreter {
                 interpret("doc/examples/advanced/tl0_poly.spl");
                 interpret("doc/examples/advanced/tl0_redefine.spl");
                 interpret("doc/examples/advanced/tl1_redefine.spl");
+                interpret("doc/examples/advanced/print0_poly.spl");
+                interpret("doc/examples/advanced/print0_redefine.spl");
+                interpret("doc/examples/advanced/print1_redefine.spl");
+                interpret("doc/examples/advanced/println0_poly.spl");
+                interpret("doc/examples/advanced/println0_redefine.spl");
+                interpret("doc/examples/advanced/println1_redefine.spl");
                 interpret("doc/examples/advanced/iszero0_redefine.spl");
                 interpret("doc/examples/advanced/iszero1_redefine.spl");
                 interpret("doc/examples/advanced/pred0_redefine.spl");
