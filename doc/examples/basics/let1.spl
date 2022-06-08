@@ -1,0 +1,7 @@
+let x=4 in
+  let x=x+2 in
+    let x=x*2 in x end
+  end
+end
+(* int *)
+(* ==> 12 *)

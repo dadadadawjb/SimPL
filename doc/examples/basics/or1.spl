@@ -1,0 +1,3 @@
+false orelse (let x = ref 1 in true end)
+(* bool *)
+(* ==> true *)

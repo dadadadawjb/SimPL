@@ -1,0 +1,5 @@
+let x=ref 3 in
+  (while !x <> 0 do x := !x-1); !x
+end
+(* int *)
+(* ==> 0 *)

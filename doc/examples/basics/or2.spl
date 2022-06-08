@@ -1,0 +1,3 @@
+true orelse (let x=ref 100 in (while true do x := !x-1); true end)
+(* bool *)
+(* ==> true *)

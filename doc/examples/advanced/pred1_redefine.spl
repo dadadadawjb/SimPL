@@ -1,0 +1,3 @@
+let pred=ref 0 in (pred := 1; !pred) end
+(* int *)
+(* ==> 1 *)

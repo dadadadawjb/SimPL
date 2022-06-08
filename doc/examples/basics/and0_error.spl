@@ -1,0 +1,2 @@
+true andalso 1
+(* type error *)

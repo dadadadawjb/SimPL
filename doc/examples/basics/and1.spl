@@ -1,0 +1,3 @@
+true andalso (let x = ref 1 in true end)
+(* bool *)
+(* ==> true *)

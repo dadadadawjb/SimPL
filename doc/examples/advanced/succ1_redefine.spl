@@ -1,0 +1,3 @@
+let succ=ref 0 in (succ := 1; !succ) end
+(* int *)
+(* ==> 1 *)

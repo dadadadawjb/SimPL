@@ -1,0 +1,3 @@
+rec f => fn n => n+1
+(* int -> int *)
+(* fun *)

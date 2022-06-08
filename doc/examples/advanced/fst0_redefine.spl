@@ -1,0 +1,3 @@
+let fst=(fn x => x) in fst (1, 2) end
+(* int * int *)
+(* ==> pair@1@2 *)

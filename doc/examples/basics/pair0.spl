@@ -1,0 +1,3 @@
+(0, true)
+(* int * bool *)
+(* ==> pair@0@true *)

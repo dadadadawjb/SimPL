@@ -1,0 +1,3 @@
+let hd=ref 0 in (hd := 1; !hd) end
+(* int *)
+(* ==> 1 *)

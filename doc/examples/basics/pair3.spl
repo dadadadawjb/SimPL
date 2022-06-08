@@ -1,0 +1,3 @@
+(fn x => x, let x=ref 1 in x := 0 end)
+(* (tv26 -> tv26) * unit *)
+(* ==> pair@fun@unit *)

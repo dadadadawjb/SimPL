@@ -1,0 +1,3 @@
+snd (1, true)
+(* bool *)
+(* ==> true *)

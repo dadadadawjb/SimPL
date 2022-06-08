@@ -1,0 +1,7 @@
+ let
+   twice = fn f => fn x => f (f x)
+ in
+   twice twice twice succ 0
+ end
+(* int *)
+(* ==> 16 *)

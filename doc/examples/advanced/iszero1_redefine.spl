@@ -1,0 +1,3 @@
+let iszero=ref 0 in (iszero := 1; !iszero) end
+(* int *)
+(* ==> 1 *)

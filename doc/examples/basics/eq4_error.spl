@@ -1,0 +1,2 @@
+(x := 1) = ref 1
+(* type error *)
