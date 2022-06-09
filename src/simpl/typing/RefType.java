@@ -13,13 +13,12 @@ public final class RefType extends Type {
 
     @Override
     public boolean isEqualityType() {
-        // TODO
         return true;        // not care about the type of the reference
     }
 
     @Override
     public Substitution unify(Type t) throws TypeError {
-        // TODO
+        // IMPORTANT
         if (t instanceof RefType)
             return this.t.unify(((RefType) t).t);
         else if (t instanceof TypeVar)
@@ -30,19 +29,16 @@ public final class RefType extends Type {
 
     @Override
     public boolean contains(TypeVar tv) {
-        // TODO
         return t.contains(tv);
     }
 
     @Override
     public Type replace(TypeVar a, Type t) {
-        // TODO
         return new RefType(this.t.replace(a, t));
     }
 
     @Override
     public Set<TypeVar> allTypeVars() {
-        // TODO
         Set<TypeVar> result = new HashSet<>(t.allTypeVars());
         return result;
     }

@@ -29,7 +29,7 @@ public class Cond extends Expr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         TypeResult typeResult1 = e1.typecheck(E);                                                   // first check the first
         TypeEnv newE1 = typeResult1.s.compose(E);                                                   // update the new type environment for solving the rest type constraints
         TypeResult typeResult2 = e2.typecheck(newE1);                                               // second check the second
@@ -57,7 +57,7 @@ public class Cond extends Expr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value value1 = e1.eval(s);          // first the first
         if (!(value1 instanceof BoolValue))
             throw new RuntimeError("Cond requires the first BoolValue");                            // actually never reach here depending on type checking
@@ -71,7 +71,6 @@ public class Cond extends Expr {
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // union of FV(e1) and FV(e2) and FV(e3)
         Set<Symbol> result = new HashSet<>(e1.FV());
         result.addAll(e2.FV());
@@ -81,7 +80,6 @@ public class Cond extends Expr {
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // union of Vars(e1) and Vars(e2) and Vars(e3)
         Set<Symbol> result = new HashSet<>(e1.Vars());
         result.addAll(e2.Vars());
@@ -91,7 +89,6 @@ public class Cond extends Expr {
 
     @Override
     public Cond substitute(Symbol x, Expr e) {
-        // TODO
         // if e1[e/x] then e2[e/x] else e3[e/x]
         return new Cond(e1.substitute(x, e), e2.substitute(x, e), e3.substitute(x, e));
     }

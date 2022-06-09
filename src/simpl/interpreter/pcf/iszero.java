@@ -21,7 +21,6 @@ public class iszero extends FunValue {
     }
 
     private static Expr getBody() {
-        // TODO
         // if x==0 then true else false
         Expr body = new Expr() {
             public String toString() {

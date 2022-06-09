@@ -23,8 +23,7 @@ public class TypeVar extends Type {
 
     @Override
     public Substitution unify(Type t) throws TypeCircularityError {
-        // TODO
-        // core unification algorithm
+        // IMPORTANT
         if (t instanceof TypeVar) {
             if (this.contains((TypeVar) t))                 // the other also type variable and equal to this
                 return Substitution.IDENTITY;
@@ -40,19 +39,16 @@ public class TypeVar extends Type {
     
     @Override
     public boolean contains(TypeVar tv) {
-        // TODO
         return name.equals(tv.name);                        // contains means equal for type variable
     }
     
     @Override
     public Type replace(TypeVar a, Type t) {
-        // TODO
         return (this.contains(a)) ? t : this;
     }
 
     @Override
     public Set<TypeVar> allTypeVars() {
-        // TODO
         Set<TypeVar> result = new HashSet<>();
         result.add(this);
         return result;

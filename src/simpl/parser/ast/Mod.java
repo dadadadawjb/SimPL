@@ -18,7 +18,7 @@ public class Mod extends ArithExpr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value leftValue = l.eval(s);        // first left
         Value rightValue = r.eval(s);       // then right
         if (!(leftValue instanceof IntValue) || !(rightValue instanceof IntValue))
@@ -30,7 +30,6 @@ public class Mod extends ArithExpr {
 
     @Override
     public Mod substitute(Symbol x, Expr e) {
-        // TODO
         // l[e/x] % r[e/x]
         return new Mod(l.substitute(x, e), r.substitute(x, e));
     }

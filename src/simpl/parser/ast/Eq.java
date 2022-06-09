@@ -17,7 +17,7 @@ public class Eq extends EqExpr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value leftValue = l.eval(s);        // first left
         Value rightValue = r.eval(s);       // then right
         if (leftValue.equals(rightValue))
@@ -28,7 +28,6 @@ public class Eq extends EqExpr {
 
     @Override
     public Eq substitute(Symbol x, Expr e) {
-        // TODO
         // l[e/x] = r[e/x]
         return new Eq(l.substitute(x, e), r.substitute(x, e));
     }

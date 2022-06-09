@@ -165,6 +165,10 @@ public class ParserTest {
 
         parse("doc/examples/commons/factorial1.spl");
         parse("doc/examples/commons/factorial2.spl");
+        parse("doc/examples/commons/factorial3.spl");
+        parse("doc/examples/commons/factorial4.spl");
+        parse("doc/examples/commons/factorial5.spl");
+        parse("doc/examples/commons/factorial6.spl");
         parse("doc/examples/commons/fibonacci.spl");
         parse("doc/examples/commons/gcd1.spl");
         parse("doc/examples/commons/gcd2.spl");

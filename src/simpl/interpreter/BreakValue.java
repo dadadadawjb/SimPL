@@ -16,13 +16,11 @@ class BreakValue extends Value {
 
     @Override
     public boolean equals(Object other) {
-        // TODO
         return false;       // not equality type
     }
 
     @Override
     public boolean equal(Object other) {
-        // TODO
         if (other instanceof BreakValue)
             return true;
         else

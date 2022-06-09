@@ -1,0 +1,11 @@
+let x = ref 6 in
+  let result = ref 1 in
+    let fact = fn x => 
+      (while !x <> 1 do
+        (result := !x * !result; x := !x - 1));
+      !result
+    in fact x end
+  end
+end
+(* int *)
+(* ==> 720 *)

@@ -16,7 +16,6 @@ class NilValue extends Value {
 
     @Override
     public boolean equals(Object other) {
-        // TODO
         if (other instanceof NilValue)
             return true;
         else
@@ -25,7 +24,6 @@ class NilValue extends Value {
 
     @Override
     public boolean equal(Object other) {
-        // TODO
         if (other instanceof NilValue)
             return true;
         else

@@ -26,7 +26,7 @@ public class Name extends Expr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         Type type = E.get(x);
         if (type == null)
             throw new TypeError("Symbol " + x + " not found in type environment");
@@ -36,7 +36,7 @@ public class Name extends Expr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value value = s.E.get(x);                                                   // get the value of the symbol
         if (value == null)
             throw new RuntimeError("Symbol " + x + " not found in state");
@@ -52,7 +52,6 @@ public class Name extends Expr {
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // {x}
         Set<Symbol> result = new HashSet<>();
         result.add(x);
@@ -61,7 +60,6 @@ public class Name extends Expr {
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // {x}
         Set<Symbol> result = new HashSet<>();
         result.add(x);
@@ -70,7 +68,6 @@ public class Name extends Expr {
 
     @Override
     public Expr substitute(Symbol x, Expr e) {
-        // TODO
         // 2 cases
         return (this.x.equals(x)) ? e : this;
     }

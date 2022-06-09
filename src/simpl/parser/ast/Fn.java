@@ -31,7 +31,7 @@ public class Fn extends Expr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         TypeVar t1 = new TypeVar(true);                          // create new type variable, with equality type since not sure about the equality
         TypeEnv newE = TypeEnv.of(E, x, t1);                    // overlap x->t1 into E
         TypeResult typeResult = e.typecheck(newE);              // first check `e`
@@ -49,13 +49,12 @@ public class Fn extends Expr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         return new FunValue(s.E.clone(), x, e);
     }
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // FV(e) - {x}
         Set<Symbol> result = new HashSet<>(e.FV());
         result.remove(x);
@@ -64,7 +63,6 @@ public class Fn extends Expr {
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // union of Vars(e) and {x}
         Set<Symbol> result = new HashSet<>(e.Vars());
         result.add(x);
@@ -73,7 +71,6 @@ public class Fn extends Expr {
 
     @Override
     public Fn substitute(Symbol x, Expr e) {
-        // TODO
         // 3 cases
         if (this.x.equals(x)) {
             return this;

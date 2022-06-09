@@ -20,7 +20,6 @@ public class print extends FunValue {
     }
 
     private static Expr getBody() {
-        // TODO
         // print(x)
         Expr body = new Expr() {
             public String toString() {

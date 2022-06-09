@@ -25,7 +25,6 @@ public class ConsValue extends Value {
 
     @Override
     public boolean equals(Object other) {
-        // TODO
         if (other instanceof ConsValue) {
             ConsValue otherConsValue = (ConsValue) other;
             return v1.equals(otherConsValue.v1) && v2.equals(otherConsValue.v2);
@@ -36,7 +35,6 @@ public class ConsValue extends Value {
 
     @Override
     public boolean equal(Object other) {
-        // TODO
         if (other instanceof ConsValue) {
             ConsValue otherConsValue = (ConsValue) other;
             return v1.equal(otherConsValue.v1) && v2.equal(otherConsValue.v2);

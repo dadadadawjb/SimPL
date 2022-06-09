@@ -35,7 +35,7 @@ public class SumCase extends Expr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         TypeResult typeResult0 = e.typecheck(E);                                // first check `e`
         Substitution substitution = typeResult0.s;                              // first solve `q0`
         TypeEnv newE0 = substitution.compose(E);                                // update the new type environment for solving the rest type constraints
@@ -75,7 +75,7 @@ public class SumCase extends Expr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value value0 = e.eval(s);                               // first the case
         if (value0 instanceof InlValue) {
             Env newE = new Env(s.E, x1, ((InlValue) value0).v);
@@ -92,7 +92,6 @@ public class SumCase extends Expr {
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // union of FV(e) and (FV(e1) - {x1}) and (FV(e2) - {x2})
         Set<Symbol> result = new HashSet<>(e.FV());
         Set<Symbol> temp1 = new HashSet<>(e1.FV());
@@ -106,7 +105,6 @@ public class SumCase extends Expr {
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // union of Vars(e) and union of Vars(e1) and {x1} and union of Vars(e2) and {x2}
         Set<Symbol> result = new HashSet<>(e.Vars());
         Set<Symbol> temp1 = new HashSet<>(e1.Vars());
@@ -120,7 +118,6 @@ public class SumCase extends Expr {
 
     @Override
     public SumCase substitute(Symbol x, Expr e) {
-        // TODO
         // 6 cases
         if (x1.equals(x)) {
             return new SumCase(this.e.substitute(x, e), x1, e1, x2, e2.substitute(x, e));

@@ -24,7 +24,7 @@ public class Not extends UnaryExpr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         TypeResult typeResult = e.typecheck(E);                         // first check `e`
 
         Substitution substitution = typeResult.s;                       // first solve `q`
@@ -38,7 +38,7 @@ public class Not extends UnaryExpr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value value = e.eval(s);            // first the body
         if (!(value instanceof BoolValue))
             throw new RuntimeError("Not requires BoolValue");                            // actually never reach here depending on type checking
@@ -52,21 +52,18 @@ public class Not extends UnaryExpr {
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // FV(e)
         return e.FV();
     }
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // Vars(e)
         return e.Vars();
     }
 
     @Override
     public Not substitute(Symbol x, Expr e) {
-        // TODO
         // not e'[e/x]
         return new Not(this.e.substitute(x, e));
     }

@@ -32,7 +32,7 @@ public class Let extends Expr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         switch (LET_POLYMORPHISM) {
             case 0: {
                 // not Let-Polymorphism
@@ -79,7 +79,7 @@ public class Let extends Expr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value value1 = e1.eval(s);                              // first the condition
         Env newE = new Env(s.E, x, value1);
         Value value2 = e2.eval(State.of(newE, s.M, s.p));       // then the body
@@ -88,7 +88,6 @@ public class Let extends Expr {
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // union of FV(e1) and (FV(e2) - {x})
         Set<Symbol> result = new HashSet<>(e2.FV());
         result.remove(x);
@@ -98,7 +97,6 @@ public class Let extends Expr {
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // union of Vars(e1) and union of Vars(e2) and {x}
         Set<Symbol> result = new HashSet<>(e2.Vars());
         result.add(x);
@@ -108,7 +106,6 @@ public class Let extends Expr {
 
     @Override
     public Let substitute(Symbol x, Expr e) {
-        // TODO
         // 3 cases
         if (this.x.equals(x)) {
             return new Let(this.x, e1.substitute(x, e), e2);

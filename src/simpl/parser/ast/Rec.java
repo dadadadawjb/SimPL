@@ -31,7 +31,7 @@ public class Rec extends Expr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         TypeVar a = new TypeVar(true);                              // create new type variable, with equality type since not sure about the equality
         TypeEnv newE = TypeEnv.of(E, x, a);                         // overlap `x -> a` into type environment
         TypeResult typeResult = e.typecheck(newE);                  // first check `e`
@@ -53,7 +53,7 @@ public class Rec extends Expr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Env newE = new Env(s.E, x, new RecValue(s.E.clone(), x, e));
         Value resultValue = e.eval(State.of(newE, s.M, s.p));           // evaluate the body
         return resultValue;
@@ -61,7 +61,6 @@ public class Rec extends Expr {
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // FV(e) - {x}
         Set<Symbol> result = new HashSet<>(e.FV());
         result.remove(x);
@@ -70,7 +69,6 @@ public class Rec extends Expr {
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // union of Vars(e) and {x}
         Set<Symbol> result = new HashSet<>(e.Vars());
         result.add(x);
@@ -79,7 +77,6 @@ public class Rec extends Expr {
 
     @Override
     public Rec substitute(Symbol x, Expr e) {
-        // TODO
         // 3 cases
         if (x.equals(this.x)) {
             return this;

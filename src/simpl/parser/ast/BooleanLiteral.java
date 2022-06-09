@@ -25,33 +25,30 @@ public class BooleanLiteral extends Expr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         return TypeResult.of(Type.BOOL);
     }
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         return (b) ? Value.TRUE : Value.FALSE;
     }
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // empty set
         return new HashSet<>();
     }
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // empty set
         return new HashSet<>();
     }
 
     @Override
     public BooleanLiteral substitute(Symbol x, Expr e) {
-        // TODO
         // not substitute
         return this;
     }

@@ -207,6 +207,10 @@ public class Interpreter {
 
                 interpret("doc/examples/commons/factorial1.spl");
                 interpret("doc/examples/commons/factorial2.spl");
+                interpret("doc/examples/commons/factorial3.spl");
+                interpret("doc/examples/commons/factorial4.spl");
+                interpret("doc/examples/commons/factorial5.spl");
+                interpret("doc/examples/commons/factorial6.spl");
                 interpret("doc/examples/commons/fibonacci.spl");
                 interpret("doc/examples/commons/gcd1.spl");
                 interpret("doc/examples/commons/gcd2.spl");

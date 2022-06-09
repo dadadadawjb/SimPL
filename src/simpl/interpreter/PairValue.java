@@ -20,7 +20,6 @@ public class PairValue extends Value {
 
     @Override
     public boolean equals(Object other) {
-        // TODO
         if (other instanceof PairValue) {
             PairValue otherPairValue = (PairValue) other;
             return v1.equals(otherPairValue.v1) && v2.equals(otherPairValue.v2);
@@ -31,7 +30,6 @@ public class PairValue extends Value {
 
     @Override
     public boolean equal(Object other) {
-        // TODO
         if (other instanceof PairValue) {
             PairValue otherPairValue = (PairValue) other;
             return v1.equal(otherPairValue.v1) && v2.equal(otherPairValue.v2);

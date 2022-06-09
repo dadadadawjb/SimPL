@@ -24,7 +24,7 @@ public class Neg extends UnaryExpr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         TypeResult typeResult = e.typecheck(E);                         // first check `e`
 
         Substitution substitution = typeResult.s;                       // first solve `q`
@@ -38,7 +38,7 @@ public class Neg extends UnaryExpr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value value = e.eval(s);            // first the body
         if (!(value instanceof IntValue))
             throw new RuntimeError("Neg requires IntValue");                            // actually never reach here depending on type checking
@@ -47,21 +47,18 @@ public class Neg extends UnaryExpr {
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // FV(e)
         return e.FV();
     }
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // Vars(e)
         return e.Vars();
     }
 
     @Override
     public Neg substitute(Symbol x, Expr e) {
-        // TODO
         // ~e'[e/x]
         return new Neg(this.e.substitute(x, e));
     }

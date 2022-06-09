@@ -18,7 +18,6 @@ public class InitialState extends State {
     }
 
     private static Env initialEnv(Env E) {
-        // TODO
         // add pre-defined functions names
         Env env = new Env(E, symbol("fst"), new fst());
         env = new Env(env, symbol("snd"), new snd());

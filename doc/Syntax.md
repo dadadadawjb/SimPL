@@ -58,7 +58,7 @@ e &::= \quad \ldots & \\
  & & \\
  &| \qquad \operatorname{inl} e &\text{(left injection)} \\
  &| \qquad \operatorname{inr} e &\text{(right injection)} \\
- &| \qquad \operatorname{case} e \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1 \mid \operatorname{inr} x_2 \Rightarrow e_2 &\text{(sum case)}
+ &| \qquad \operatorname{case} e \operatorname{of} \operatorname{inl} x_1 \Rightarrow e_1 \mid \operatorname{inr} x_2 \Rightarrow e_2 &\text{(sum case)} \\
  & & \\
  &| \qquad \operatorname{rec} x \Rightarrow e &\text{(recursive function)} \\
  & & \\

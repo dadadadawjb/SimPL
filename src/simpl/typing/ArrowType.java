@@ -15,13 +15,12 @@ public final class ArrowType extends Type {
 
     @Override
     public boolean isEqualityType() {
-        // TODO
         return false;
     }
 
     @Override
     public Substitution unify(Type t) throws TypeError {
-        // TODO
+        // IMPORTANT
         if (t instanceof ArrowType) {
             Substitution substitution = t1.unify(((ArrowType) t).t1);
             Type t2_ = substitution.apply(t2);
@@ -37,19 +36,16 @@ public final class ArrowType extends Type {
 
     @Override
     public boolean contains(TypeVar tv) {
-        // TODO
         return t1.contains(tv) || t2.contains(tv);
     }
 
     @Override
     public Type replace(TypeVar a, Type t) {
-        // TODO
         return new ArrowType(t1.replace(a, t), t2.replace(a, t));
     }
 
     @Override
     public Set<TypeVar> allTypeVars() {
-        // TODO
         Set<TypeVar> result = new HashSet<>(t1.allTypeVars());
         result.addAll(t2.allTypeVars());
         return result;

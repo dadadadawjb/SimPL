@@ -21,7 +21,6 @@ public class pred extends FunValue {
     }
 
     private static Expr getBody() {
-        // TODO
         // x - 1
         Expr body = new Expr() {
             public String toString() {

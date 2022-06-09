@@ -1,0 +1,12 @@
+let format = rec f => fn n => 
+  if n=1 then (1::nil)
+  else (n::(f (n-1)))
+in
+  let fact = rec f' => fn l => 
+    (case l of nil => 1 | x1::x2 => x1 * (f' x2))
+  in
+    fact (format 6)
+  end
+end
+(* int *)
+(* ==> 720 *)

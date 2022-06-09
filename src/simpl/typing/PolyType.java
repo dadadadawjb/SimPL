@@ -42,31 +42,27 @@ public class PolyType extends Type {
     
     @Override
     public boolean isEqualityType() {
-        // TODO
         return originalType.isEqualityType();           // actually in now situation never used
     }
 
     @Override
     public Substitution unify(Type t) throws TypeError {
-        // TODO
+        // IMPORTANT
         return Substitution.IDENTITY;                   // actually never reach here
     }
 
     @Override
     public boolean contains(TypeVar tv) {
-        // TODO
         return originalType.contains(tv);
     }
 
     @Override
     public Type replace(TypeVar a, Type t) {
-        // TODO
         return this;                                    // actually never reach here
     }
 
     @Override
     public Set<TypeVar> allTypeVars() {
-        // TODO
         return new HashSet<>();
     }
 

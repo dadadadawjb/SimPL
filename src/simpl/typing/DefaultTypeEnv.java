@@ -8,7 +8,6 @@ public class DefaultTypeEnv extends TypeEnv {
     private TypeEnv E;
 
     public DefaultTypeEnv() {
-        // TODO
         // add pre-defined function types
         /**
          * // not support polymorphism

@@ -10,13 +10,12 @@ final class UnitType extends Type {
 
     @Override
     public boolean isEqualityType() {
-        // TODO
         return false;
     }
 
     @Override
     public Substitution unify(Type t) throws TypeError {
-        // TODO
+        // IMPORTANT
         if (t instanceof UnitType)
             return Substitution.IDENTITY;
         else if (t instanceof TypeVar)
@@ -27,19 +26,16 @@ final class UnitType extends Type {
 
     @Override
     public boolean contains(TypeVar tv) {
-        // TODO
         return false;
     }
 
     @Override
     public Type replace(TypeVar a, Type t) {
-        // TODO
         return Type.UNIT;
     }
 
     @Override
     public Set<TypeVar> allTypeVars() {
-        // TODO
         Set<TypeVar> result = new HashSet<>();
         return result;
     }

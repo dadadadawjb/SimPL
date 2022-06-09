@@ -16,13 +16,11 @@ class ContinueValue extends Value {
 
     @Override
     public boolean equals(Object other) {
-        // TODO
         return false;       // not equality type
     }
 
     @Override
     public boolean equal(Object other) {
-        // TODO
         if (other instanceof ContinueValue)
             return true;
         else

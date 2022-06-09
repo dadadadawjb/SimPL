@@ -6,4 +6,4 @@ let count=ref 0 in
   end
 end
 (* int *)
-(* ==> 0 *)
+(* ==> 2 *)

@@ -35,7 +35,7 @@ public class ListCase extends Expr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         TypeResult typeResult0 = e.typecheck(E);                                // first check `e`
         Substitution substitution = typeResult0.s;                              // first solve `q0`
         TypeEnv newE0 = substitution.compose(E);                                // update the new type environment for solving the rest type constraints
@@ -70,7 +70,7 @@ public class ListCase extends Expr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value value0 = e.eval(s);                                       // first the case
         if (value0.equal(Value.NIL)) {
             Value value1 = e1.eval(s);                                  // then `e1`
@@ -87,7 +87,6 @@ public class ListCase extends Expr {
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // union of FV(e) and FV(e1) and (FV(e2) - {x1, x2})
         Set<Symbol> result = new HashSet<>(e2.FV());
         result.remove(x1);
@@ -99,7 +98,6 @@ public class ListCase extends Expr {
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // union of Vars(e) and Vars(e1) and union of Vars(e2) and {x1, x2}
         Set<Symbol> result = new HashSet<>(e2.Vars());
         result.add(x1);
@@ -111,7 +109,6 @@ public class ListCase extends Expr {
 
     @Override
     public ListCase substitute(Symbol x, Expr e) {
-        // TODO
         // 6 cases
         if (x1.equals(x)) {
             return new ListCase(this.e.substitute(x, e), e1.substitute(x, e), x1, x2, e2);

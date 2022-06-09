@@ -19,7 +19,6 @@ public class InlValue extends Value {
 
     @Override
     public boolean equals(Object other) {
-        // TODO
         if (other instanceof InlValue)
             return v.equals(((InlValue) other).v);
         else
@@ -28,7 +27,6 @@ public class InlValue extends Value {
 
     @Override
     public boolean equal(Object other) {
-        // TODO
         if (other instanceof InlValue)
             return v.equals(((InlValue) other).v);
         else

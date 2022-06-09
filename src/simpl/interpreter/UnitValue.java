@@ -16,13 +16,11 @@ class UnitValue extends Value {
 
     @Override
     public boolean equals(Object other) {
-        // TODO
         return false;       // not equality type
     }
 
     @Override
     public boolean equal(Object other) {
-        // TODO
         if (other instanceof UnitValue)
             return true;
         else

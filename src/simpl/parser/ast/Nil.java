@@ -21,7 +21,7 @@ public class Nil extends Expr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         TypeVar typeVar = new TypeVar(true);                // create new type variable with equality type
         Type resultType = new ListType(typeVar);            // create result type
         
@@ -30,27 +30,24 @@ public class Nil extends Expr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         return Value.NIL;
     }
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // empty set
         return new HashSet<>();
     }
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // empty set
         return new HashSet<>();
     }
 
     @Override
     public Nil substitute(Symbol x, Expr e) {
-        // TODO
         // not substitute
         return this;
     }

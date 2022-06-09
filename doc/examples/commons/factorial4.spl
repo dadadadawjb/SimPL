@@ -1,0 +1,8 @@
+let fact = rec f => fn p => 
+  if (fst p) <> 1 then
+    f ((fst p) - 1, (snd p) * (fst p))
+  else
+    (snd p)
+in fact (6, 1) end
+(* int *)
+(* ==> 720 *)

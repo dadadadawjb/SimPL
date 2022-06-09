@@ -18,7 +18,7 @@ public class Greater extends RelExpr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value leftValue = l.eval(s);        // first left
         Value rightValue = r.eval(s);       // then right
         if (!(leftValue instanceof IntValue) || !(rightValue instanceof IntValue))
@@ -31,7 +31,6 @@ public class Greater extends RelExpr {
 
     @Override
     public Greater substitute(Symbol x, Expr e) {
-        // TODO
         // l[e/x] > r[e/x]
         return new Greater(l.substitute(x, e), r.substitute(x, e));
     }

@@ -23,13 +23,13 @@ public class SeqPair extends BinaryExpr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         return TypeResult.of(Type.UNIT);                // actually never reach here since it never appears in source codes
     }
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value leftValue = l.eval(s);            // first left
         if (leftValue.equal(Value.BREAK)) {
             return Value.UNIT;                  // directly unit
@@ -46,7 +46,6 @@ public class SeqPair extends BinaryExpr {
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // union of FV(l) and FV(r)
         Set<Symbol> result = new HashSet<>(l.FV());
         result.addAll(r.FV());
@@ -55,7 +54,6 @@ public class SeqPair extends BinaryExpr {
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // union of Vars(l) and Vars(r)
         Set<Symbol> result = new HashSet<>(l.Vars());
         result.addAll(r.Vars());
@@ -64,7 +62,6 @@ public class SeqPair extends BinaryExpr {
 
     @Override
     public SeqPair substitute(Symbol x, Expr e) {
-        // TODO
         // (l[e/x], r[e/x])
         return new SeqPair(l.substitute(x, e), r.substitute(x, e));
     }

@@ -18,7 +18,7 @@ public abstract class EqExpr extends BinaryExpr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         TypeResult leftTypeResult = l.typecheck(E);                                 // first check left
         TypeEnv newE = leftTypeResult.s.compose(E);                                 // update the new type environment for solving the rest type constraints
         TypeResult rightTypeResult = r.typecheck(newE);                             // then check right
@@ -39,7 +39,6 @@ public abstract class EqExpr extends BinaryExpr {
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // union of FV(l) and FV(r)
         Set<Symbol> result = new HashSet<>(l.FV());
         result.addAll(r.FV());
@@ -48,7 +47,6 @@ public abstract class EqExpr extends BinaryExpr {
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // union of Vars(l) and Vars(r)
         Set<Symbol> result = new HashSet<>(l.Vars());
         result.addAll(r.Vars());

@@ -21,33 +21,30 @@ public class Group extends UnaryExpr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         return e.typecheck(E);
     }
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         return e.eval(s);
     }
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // FV(e)
         return e.FV();
     }
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // Vars(e)
         return e.Vars();
     }
 
     @Override
     public Group substitute(Symbol x, Expr e) {
-        // TODO
         // (e'[e/x])
         return new Group(this.e.substitute(x, e));
     }

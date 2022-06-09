@@ -5,5 +5,4 @@ let count=ref 0 in
     !count
   end
 end
-(* int *)
-(* ==> 0 *)
+(* type error *)

@@ -21,7 +21,6 @@ public class hd extends FunValue {
     }
 
     private static Expr getBody() {
-        // TODO
         // x.v1
         Expr body = new Expr() {
             public String toString() {

@@ -15,13 +15,12 @@ public final class PairType extends Type {
 
     @Override
     public boolean isEqualityType() {
-        // TODO
         return t1.isEqualityType() && t2.isEqualityType();
     }
 
     @Override
     public Substitution unify(Type t) throws TypeError {
-        // TODO
+        // IMPORTANT
         if (t instanceof PairType) {
             Substitution substitution = t1.unify(((PairType) t).t1);
             Type t2_ = substitution.apply(t2);
@@ -37,19 +36,16 @@ public final class PairType extends Type {
 
     @Override
     public boolean contains(TypeVar tv) {
-        // TODO
         return t1.contains(tv) || t2.contains(tv);
     }
 
     @Override
     public Type replace(TypeVar a, Type t) {
-        // TODO
         return new PairType(t1.replace(a, t), t2.replace(a, t));
     }
 
     @Override
     public Set<TypeVar> allTypeVars() {
-        // TODO
         Set<TypeVar> result = new HashSet<>(t1.allTypeVars());
         result.addAll(t2.allTypeVars());
         return result;

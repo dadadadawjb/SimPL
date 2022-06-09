@@ -26,7 +26,7 @@ public class Cons extends BinaryExpr {
 
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
-        // TODO
+        // IMPORTANT
         TypeResult leftTypeResult = l.typecheck(E);                                     // first check left
         TypeEnv newE = leftTypeResult.s.compose(E);                                     // update the new type environment for solving the rest type constraints
         TypeResult rightTypeResult = r.typecheck(newE);                                 // then check right
@@ -46,7 +46,7 @@ public class Cons extends BinaryExpr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value leftValue = l.eval(s);        // first left
         Value rightValue = r.eval(s);       // then right
         if (!(rightValue instanceof ConsValue) && !(rightValue.equal(Value.NIL)))
@@ -56,7 +56,6 @@ public class Cons extends BinaryExpr {
 
     @Override
     public Set<Symbol> FV() {
-        // TODO
         // union of FV(l) and FV(r)
         Set<Symbol> result = new HashSet<>(l.FV());
         result.addAll(r.FV());
@@ -65,7 +64,6 @@ public class Cons extends BinaryExpr {
 
     @Override
     public Set<Symbol> Vars() {
-        // TODO
         // union of Vars(l) and Vars(r)
         Set<Symbol> result = new HashSet<>(l.Vars());
         result.addAll(r.Vars());
@@ -74,7 +72,6 @@ public class Cons extends BinaryExpr {
 
     @Override
     public Cons substitute(Symbol x, Expr e) {
-        // TODO
         // l[e/x] :: r[e/x]
         return new Cons(l.substitute(x, e), r.substitute(x, e));
     }

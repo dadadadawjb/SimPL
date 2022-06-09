@@ -18,7 +18,7 @@ public class Add extends ArithExpr {
 
     @Override
     public Value eval(State s) throws RuntimeError {
-        // TODO
+        // IMPORTANT
         Value leftValue = l.eval(s);        // first left
         Value rightValue = r.eval(s);       // then right
         if (!(leftValue instanceof IntValue) || !(rightValue instanceof IntValue))
@@ -28,7 +28,6 @@ public class Add extends ArithExpr {
 
     @Override
     public Add substitute(Symbol x, Expr e) {
-        // TODO
         // l[e/x] + r[e/x]
         return new Add(l.substitute(x, e), r.substitute(x, e));
     }
