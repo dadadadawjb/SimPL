@@ -114,7 +114,7 @@ end
 * [Types](doc/Types.md)
 * [Free variables and all variables calculation](doc/FreeVariables-AllVariables.md)
 * [Substitution](doc/Substitution.md)
-* [Operational semantics](OperationalSemantics.md)
+* [Operational semantics](doc/OperationalSemantics.md)
 * [Typing](doc/Typing.md)
 * [Unification](doc/Unification.md)
 
