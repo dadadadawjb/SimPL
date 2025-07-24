@@ -1,4 +1,6 @@
 # SimPL
+<img src="assets/simpl.png" alt="SimPL" width="10%" >
+
 An *interpreter* for the programming language **SimPL** (pronounced *simple*).
 SimPL is a simplified dialect of ML, which can be used for both *functional* and *imperative* programming.
 
